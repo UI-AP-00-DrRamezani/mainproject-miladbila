@@ -2,7 +2,7 @@ package shop.entities;
 
 import java.util.ArrayList;
 
-public class Product {
+abstract public class Product {
     private int ID;
     private String name;
     private String brand;
