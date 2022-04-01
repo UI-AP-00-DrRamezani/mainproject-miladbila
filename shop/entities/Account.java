@@ -10,8 +10,8 @@ public class Account {
     private int phoneNumber;
     private String password;
     private String role;
-    private ArrayList<Integer> discountCodes = new ArrayList<Integer>();
     private double credit;
     private ArrayList<PurchaseInvoice> purchaseInvoices = new ArrayList<PurchaseInvoice>();
     private ArrayList<SalesInvoice> salesInvoice = new ArrayList<SalesInvoice>();
+
 }
