@@ -3,8 +3,28 @@ package shop.entities;
 import java.util.ArrayList;
 
 public class Category {
-    private String name;
-    private String attributes;
-    private ArrayList<Product> products=new ArrayList<>();
+    private final String name;
+    private final String attributes;
+    private ArrayList<Product> products = new ArrayList<>();
 
+    public Category(String name, String attributes) {
+        this.name = name;
+        this.attributes = attributes;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAttributes() {
+        return attributes;
+    }
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Product products) {
+        this.products.add(products);
+    }
 }
