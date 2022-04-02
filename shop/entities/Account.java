@@ -11,8 +11,6 @@ public class Account {
     private String password;
     private final String role;
     private double credit;
-    private ArrayList<PurchaseInvoice> purchaseInvoices = new ArrayList<>();
-    private ArrayList<SalesInvoice> salesInvoice = new ArrayList<>();
 
     public Account(String username, String name, String lastName, String email, int phoneNumber, String password, String role) {
         this.username = username;
@@ -91,21 +89,5 @@ public class Account {
 
     public void setCredit(double credit) {
         this.credit = credit;
-    }
-
-    public ArrayList<PurchaseInvoice> getPurchaseInvoices() {
-        return purchaseInvoices;
-    }
-
-    public void setPurchaseInvoices(PurchaseInvoice purchaseInvoices) {
-        this.purchaseInvoices.add(purchaseInvoices);
-    }
-
-    public ArrayList<SalesInvoice> getSalesInvoice() {
-        return salesInvoice;
-    }
-
-    public void setSalesInvoice(SalesInvoice salesInvoice) {
-        this.salesInvoice.add(salesInvoice);
     }
 }
