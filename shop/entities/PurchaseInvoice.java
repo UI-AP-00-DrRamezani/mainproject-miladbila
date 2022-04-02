@@ -1,5 +1,7 @@
 package shop.entities;
 
+import shop.entities.products.Product;
+
 public class PurchaseInvoice {
     private final int ID;
     private final String date;

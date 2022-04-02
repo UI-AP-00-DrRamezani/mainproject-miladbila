@@ -1,5 +1,7 @@
 package shop.entities;
 
+import shop.entities.products.Product;
+
 import java.util.ArrayList;
 
 public class Category {

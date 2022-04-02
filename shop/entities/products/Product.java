@@ -1,4 +1,4 @@
-package shop.entities;
+package shop.entities.products;
 
 import java.util.ArrayList;
 
