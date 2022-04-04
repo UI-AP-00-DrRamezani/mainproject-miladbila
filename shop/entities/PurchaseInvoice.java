@@ -10,7 +10,7 @@ public class PurchaseInvoice {
     private final String sellerName;
     private boolean deliveryStatus;
 
-    public PurchaseInvoice(int ID, String date, double amountPaid, Product[] productsPurchased, String sellerName, boolean deliveryStatus) {
+    public PurchaseInvoice(int ID, String date, double amountPaid, Product[] productsPurchased, String sellerName) {
         this.ID = ID;
         this.date = date;
         this.amountPaid = amountPaid;
