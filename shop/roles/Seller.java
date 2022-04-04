@@ -12,6 +12,9 @@ public class Seller extends Account {
     private String companyEmail;
     private ArrayList<Product> productsForSale = new ArrayList<>();
     private ArrayList<SalesInvoice> salesHistory = new ArrayList<>();
+    private status accountStatus = status.PENDING;
+
+    enum status {PENDING, CONFIRMED, REJECTED}
 
     public Seller(String username, String name, String lastName, String email, int phoneNumber, String password,
                   String companyName, String companyEmail) {
@@ -50,5 +53,13 @@ public class Seller extends Account {
 
     public void setSalesHistory(SalesInvoice salesInvoice) {
         this.salesHistory.add(salesInvoice);
+    }
+
+    public status getAccountStatus() {
+        return accountStatus;
+    }
+
+    public void setAccountStatus(status accountStatus) {
+        this.accountStatus = accountStatus;
     }
 }
