@@ -7,12 +7,12 @@ import shop.entities.PurchaseInvoice;
 import java.util.ArrayList;
 
 public class Buyer extends Account {
-    ArrayList<Product> cart = new ArrayList<>();
-    ArrayList<PurchaseInvoice> purchaseInvoices = new ArrayList<>();
+    private ArrayList<Product> cart = new ArrayList<>();
+    private ArrayList<PurchaseInvoice> purchaseInvoices = new ArrayList<>();
 
 
-    public Buyer(String username, String name, String lastName, String email, int phoneNumber, String password, String role) {
-        super(username, name, lastName, email, phoneNumber, password, role);
+    public Buyer(String username, String name, String lastName, String email, int phoneNumber, String password) {
+        super(username, name, lastName, email, phoneNumber, password);
     }
 
     public ArrayList<Product> getCart() {
