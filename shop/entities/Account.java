@@ -9,18 +9,14 @@ public class Account {
     private String email;
     private int phoneNumber;
     private String password;
-    private final String role;
-    private double credit;
 
-    public Account(String username, String name, String lastName, String email, int phoneNumber, String password, String role) {
+    public Account(String username, String name, String lastName, String email, int phoneNumber, String password) {
         this.username = username;
         this.name = name;
         this.lastName = lastName;
         setEmail(email);
         this.phoneNumber = phoneNumber;
         this.password = password;
-        this.role = role;
-        this.credit = 0;
     }
 
     public String getUsername() {
@@ -79,15 +75,4 @@ public class Account {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public double getCredit() {
-        return credit;
-    }
-
-    public void setCredit(double credit) {
-        this.credit = credit;
-    }
 }
