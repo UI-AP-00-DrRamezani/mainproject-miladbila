@@ -1,14 +1,15 @@
 package shop.entities.products.household;
 
 import shop.entities.products.Product;
+import shop.roles.Seller;
 
 abstract public class HouseholdProducts extends Product {
     int energyConsumptionDegree;
     boolean warranty;
 
-    public HouseholdProducts(String name, String brand, double price, String sellers, int inventory, String explanation,
+    public HouseholdProducts(String name, String brand, double price, Seller seller, int inventory, String explanation,
                              int energyConsumptionDegree, boolean warranty) {
-        super(name, brand, price, sellers, inventory, explanation);
+        super(name, brand, price, seller, inventory, explanation);
         this.energyConsumptionDegree = energyConsumptionDegree;
         this.warranty = warranty;
     }

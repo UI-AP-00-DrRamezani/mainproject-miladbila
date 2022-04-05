@@ -1,14 +1,15 @@
 package shop.entities.products.food;
 
 import shop.entities.products.Product;
+import shop.roles.Seller;
 
 public class FoodProducts extends Product {
     String productionDate;
     String expirationDate;
 
-    public FoodProducts(String name, String brand, double price, String sellers, int inventory, String explanation,
+    public FoodProducts(String name, String brand, double price, Seller seller, int inventory, String explanation,
                         String productionDate, String expirationDate) {
-        super(name, brand, price, sellers, inventory, explanation);
+        super(name, brand, price, seller, inventory, explanation);
         this.productionDate = productionDate;
         this.expirationDate = expirationDate;
     }

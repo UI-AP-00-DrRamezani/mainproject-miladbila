@@ -1,13 +1,15 @@
 package shop.entities.products.household;
 
+import shop.roles.Seller;
+
 public class Refrigerator extends HouseholdProducts {
     double capacity;
     String type;
     boolean haveFreezer;
 
-    public Refrigerator(String name, String brand, double price, String sellers, int inventory, String explanation,
+    public Refrigerator(String name, String brand, double price, Seller seller, int inventory, String explanation,
                         int energyConsumptionDegree, boolean warranty, double capacity, String type, boolean haveFreezer) {
-        super(name, brand, price, sellers, inventory, explanation, energyConsumptionDegree, warranty);
+        super(name, brand, price, seller, inventory, explanation, energyConsumptionDegree, warranty);
         this.capacity = capacity;
         this.type = type;
         this.haveFreezer = haveFreezer;

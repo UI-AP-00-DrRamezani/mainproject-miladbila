@@ -1,6 +1,6 @@
 package shop.entities.products;
 
-import java.util.ArrayList;
+import shop.roles.Seller;
 
 abstract public class Product {
     private static int LAST_ID = 0;
@@ -8,18 +8,18 @@ abstract public class Product {
     private String name;
     private String brand;
     private double price;
-    private ArrayList<String> sellers = new ArrayList<String>();
+    private final Seller seller;
     private int inventory;
     private String explanation;
     private int averageScoreOfBuyers;
 
 
-    public Product(String name, String brand, double price, String sellers, int inventory, String explanation) {
+    public Product(String name, String brand, double price, Seller seller, int inventory, String explanation) {
         this.ID = LAST_ID++;
         this.name = name;
         this.brand = brand;
         this.price = price;
-        this.sellers.add(sellers);
+        this.seller = seller;
         this.inventory = inventory;
         this.explanation = explanation;
         this.averageScoreOfBuyers = 0;
@@ -53,12 +53,8 @@ abstract public class Product {
         this.price = price;
     }
 
-    public ArrayList<String> getSellers() {
-        return sellers;
-    }
-
-    public void setSellers(String sellers) {
-        this.sellers.add(sellers);
+    public Seller getSeller() {
+        return seller;
     }
 
     public int getInventory() {

@@ -1,6 +1,7 @@
 package shop.entities.products.digital;
 
 import shop.entities.products.Product;
+import shop.roles.Seller;
 
 abstract public class DigitalProducts extends Product {
     private double storageCapacity;
@@ -9,9 +10,9 @@ abstract public class DigitalProducts extends Product {
     private double weight;
     private String dimensions;
 
-    public DigitalProducts(String name, String brand, double price, String sellers, int inventory, String explanation,
+    public DigitalProducts(String name, String brand, double price, Seller seller, int inventory, String explanation,
                            double storageCapacity, double ramCapacity, String OS, double weight, String dimensions) {
-        super(name, brand, price, sellers, inventory, explanation);
+        super(name, brand, price, seller, inventory, explanation);
         this.storageCapacity = storageCapacity;
         this.ramCapacity = ramCapacity;
         this.OS = OS;

@@ -1,13 +1,15 @@
 package shop.entities.products.household;
 
+import shop.roles.Seller;
+
 public class Gaz extends HouseholdProducts {
     int flameCount;
     String material;
     boolean haveOven;
 
-    public Gaz(String name, String brand, double price, String sellers, int inventory, String explanation,
+    public Gaz(String name, String brand, double price, Seller seller, int inventory, String explanation,
                int energyConsumptionDegree, boolean warranty, int flameCount, String material, boolean haveOven) {
-        super(name, brand, price, sellers, inventory, explanation, energyConsumptionDegree, warranty);
+        super(name, brand, price, seller, inventory, explanation, energyConsumptionDegree, warranty);
         this.flameCount = flameCount;
         this.material = material;
         this.haveOven = haveOven;

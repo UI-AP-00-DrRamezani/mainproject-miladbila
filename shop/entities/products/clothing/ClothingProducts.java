@@ -1,14 +1,15 @@
 package shop.entities.products.clothing;
 
 import shop.entities.products.Product;
+import shop.roles.Seller;
 
 abstract public class ClothingProducts extends Product {
     private String producingCountry;
     private String material;
 
-    public ClothingProducts(String name, String brand, double price, String sellers, int inventory, String explanation,
+    public ClothingProducts(String name, String brand, double price, Seller seller, int inventory, String explanation,
                             String producingCountry, String material) {
-        super(name, brand, price, sellers, inventory, explanation);
+        super(name, brand, price, seller, inventory, explanation);
         this.producingCountry = producingCountry;
         this.material = material;
     }
