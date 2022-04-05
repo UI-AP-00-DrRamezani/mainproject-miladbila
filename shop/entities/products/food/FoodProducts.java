@@ -1,4 +1,6 @@
-package shop.entities.products;
+package shop.entities.products.food;
+
+import shop.entities.products.Product;
 
 public class FoodProducts extends Product {
     String productionDate;
