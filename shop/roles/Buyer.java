@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Buyer extends Account {
     private ArrayList<Product> cart = new ArrayList<>();
     private ArrayList<PurchaseInvoice> purchaseInvoices = new ArrayList<>();
+    private double credit = 0;
 
 
     public Buyer(String username, String name, String lastName, String email, int phoneNumber, String password) {
@@ -31,4 +32,11 @@ public class Buyer extends Account {
         this.purchaseInvoices.add(purchaseInvoices);
     }
 
+    public double getCredit() {
+        return credit;
+    }
+
+    public void setCredit(double credit) {
+        this.credit = credit;
+    }
 }
