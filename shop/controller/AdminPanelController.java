@@ -28,4 +28,8 @@ public class AdminPanelController {
     public static void deleteBuyer(int index) {
         BuyerController.getBuyerList().remove(index - 1);
     }
+
+    public static void changeSellerStatus(int index, Seller.status status) {
+        SellerController.getSellerList().get(index - 1).setAccountStatus(status);
+    }
 }

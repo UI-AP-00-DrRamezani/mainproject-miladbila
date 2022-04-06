@@ -2,6 +2,7 @@ package shop.pages;
 
 import shop.controller.AdminPanelController;
 import shop.roles.Admin;
+import shop.roles.Seller;
 
 import static shop.pages.Main.input;
 
@@ -22,6 +23,7 @@ public class AdminPanel {
                     changeInfo();
                     break;
                 case 2:
+                    sellersRegistrationRequests();
                     break;
                 case 3:
                     break;
@@ -35,9 +37,19 @@ public class AdminPanel {
                     break;
                 case 7:
                     return;
-
             }
         }
+    }
+
+    private static void sellersRegistrationRequests() {
+        AdminPanelController.sellersList();
+        System.out.println("Enter number of user that you want change his/her status");
+        int userIndex= input.nextInt();
+        System.out.println("if you want confirm that user enter 1 otherwise enter 2");
+        if (input.nextInt()==1)
+            AdminPanelController.changeSellerStatus(userIndex, Seller.status.CONFIRMED);
+        else
+            AdminPanelController.changeSellerStatus(userIndex, Seller.status.REJECTED);
     }
 
     private static void usersList() {
