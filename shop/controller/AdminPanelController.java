@@ -7,7 +7,8 @@ public class AdminPanelController {
     public static void sellersList() {
         int i = 1;
         for (Seller a : SellerController.getSellerList()) {
-            System.out.println(i + ". company name:" + a.getCompanyName() + "  registration status:" + a.getAccountStatus());
+            System.out.println(i + ". company name:" + a.getCompanyName() + "  registration status:" + a.getAccountStatus()
+                    + "  username:" + a.getUsername());
             i++;
         }
     }
@@ -15,7 +16,7 @@ public class AdminPanelController {
     public static void buyerList() {
         int i = 1;
         for (Buyer a : BuyerController.getBuyerList()) {
-            System.out.println();
+            System.out.println(i + ". name" + a.getName() + "  last name:" + a.getLastName() + " username:" + a.getUsername());
             i++;
         }
     }
