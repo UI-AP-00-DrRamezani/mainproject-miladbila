@@ -14,7 +14,7 @@ public class Seller extends Account {
     private ArrayList<SalesInvoice> salesHistory = new ArrayList<>();
     private status accountStatus = status.PENDING;
 
-    enum status {PENDING, CONFIRMED, REJECTED}
+    public enum status {PENDING, CONFIRMED, REJECTED}
 
     public Seller(String username, String name, String lastName, String email, int phoneNumber, String password,
                   String companyName, String companyEmail) {

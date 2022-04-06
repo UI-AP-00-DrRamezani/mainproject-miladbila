@@ -3,7 +3,7 @@ package shop.entities.products.clothing;
 import shop.roles.Seller;
 
 public class Dress extends ClothingProducts {
-    enum ClothingType {
+    public enum ClothingType {
         shirt, pants
     }
 
