@@ -1,5 +1,7 @@
 package shop.controller;
 
+import shop.controller.products.ProductsController;
+import shop.entities.products.Product;
 import shop.roles.Buyer;
 import shop.roles.Seller;
 
@@ -31,5 +33,17 @@ public class AdminPanelController {
 
     public static void changeSellerStatus(int index, Seller.status status) {
         SellerController.getSellerList().get(index - 1).setAccountStatus(status);
+    }
+
+    public static void viewProducts() {
+        int i = 1;
+        for (Product a : ProductsController.getProducts()) {
+            System.out.println(i + ". ID:" + a.getID() + "  name:" + a.getName() + "  price:" + a.getPrice());
+            i++;
+        }
+    }
+
+    public static void changeProductsStatus(int index, Product.status status) {
+
     }
 }

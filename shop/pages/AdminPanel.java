@@ -1,6 +1,7 @@
 package shop.pages;
 
 import shop.controller.AdminPanelController;
+import shop.entities.products.Product;
 import shop.roles.Admin;
 import shop.roles.Seller;
 
@@ -26,6 +27,7 @@ public class AdminPanel {
                     sellersRegistrationRequests();
                     break;
                 case 3:
+                    changeProductStatus();
                     break;
                 case 4:
                     usersList();
@@ -34,11 +36,22 @@ public class AdminPanel {
                     deleteUser();
                     break;
                 case 6:
-                    break;
+
                 case 7:
                     return;
             }
         }
+    }
+
+    private static void changeProductStatus() {
+        AdminPanelController.viewProducts();
+        System.out.println("Enter number of product that you want change it status");
+        int userIndex= input.nextInt();
+        System.out.println("if you want confirm that product enter 1 otherwise enter 2");
+        if (input.nextInt()==1)
+            AdminPanelController.changeProductsStatus(userIndex, Product.status.CONFIRMED);
+        else
+            AdminPanelController.changeProductsStatus(userIndex, Product.status.REJECTED);
     }
 
     private static void sellersRegistrationRequests() {
