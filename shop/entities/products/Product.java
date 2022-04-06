@@ -12,7 +12,9 @@ abstract public class Product {
     private int inventory;
     private String explanation;
     private int averageScoreOfBuyers;
+    private status confirmStatus = status.PENDING;
 
+    public enum status {PENDING, CONFIRMED, REJECTED}
 
     public Product(String name, String brand, double price, Seller seller, int inventory, String explanation) {
         this.ID = LAST_ID++;
@@ -79,5 +81,14 @@ abstract public class Product {
 
     public void setAverageScoreOfBuyers(int averageScoreOfBuyers) {
         this.averageScoreOfBuyers = averageScoreOfBuyers;
+    }
+
+
+    public status getConfirmStatus() {
+        return confirmStatus;
+    }
+
+    public void setConfirmStatus(status confirmStatus) {
+        this.confirmStatus = confirmStatus;
     }
 }
