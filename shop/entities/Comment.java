@@ -1,17 +1,18 @@
 package shop.entities;
 
+import shop.entities.products.Product;
 import shop.roles.Buyer;
 
 public class Comment {
     private final Buyer commentingUser;
-    private final String product;
+    private final Product product;
     private String commentText;
     private status commentStatus=status.PENDING;
     private boolean isUserBuyProduct;
 
     public enum status {PENDING, CONFIRMED, REJECTED}
 
-    public Comment(Buyer commentingUser, String product, String commentText, boolean isUserBuyProduct) {
+    public Comment(Buyer commentingUser, Product product, String commentText, boolean isUserBuyProduct) {
         this.commentingUser = commentingUser;
         this.product = product;
         this.commentText = commentText;
@@ -22,7 +23,7 @@ public class Comment {
         return commentingUser;
     }
 
-    public String getProduct() {
+    public Product getProduct() {
         return product;
     }
 
