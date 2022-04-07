@@ -34,7 +34,7 @@ public class AddProduct {
         }
     }
 
-    public static void addMobile(Seller seller) {
+    private static void addMobile(Seller seller) {
         System.out.println("Please enter the requested information");
         System.out.println("Name:");
         String name = input.nextLine();
@@ -64,7 +64,7 @@ public class AddProduct {
                 OS, weight, dimensions, simCount, camera);
     }
 
-    public static void addLaptop(Seller seller) {
+    private static void addLaptop(Seller seller) {
         System.out.println("Please enter the requested information");
         System.out.println("Name:");
         String name = input.nextLine();
@@ -94,7 +94,7 @@ public class AddProduct {
                 OS, weight, dimensions, CPU, isGaming);
     }
 
-    public static void addDress(Seller seller) {
+    private static void addDress(Seller seller) {
         System.out.println("Please enter the requested information");
         System.out.println("Name:");
         String name = input.nextLine();
@@ -121,7 +121,7 @@ public class AddProduct {
         AddProductController.addDress(name, brand, price, seller, inventory, explanation, producingCountry, material, size, type);
     }
 
-    public static void addShoes(Seller seller) {
+    private static void addShoes(Seller seller) {
         System.out.println("Please enter the requested information");
         System.out.println("Name:");
         String name = input.nextLine();
@@ -150,7 +150,7 @@ public class AddProduct {
         AddProductController.addShoes(name, brand, price, seller, inventory, explanation, producingCountry, material, size, type);
     }
 
-    public static void addGaz(Seller seller) {
+    private static void addGaz(Seller seller) {
         System.out.println("Please enter the requested information");
         System.out.println("Name:");
         String name = input.nextLine();
@@ -176,7 +176,7 @@ public class AddProduct {
                 , flameCount, material, haveOven);
     }
 
-    public static void addTV(Seller seller) {
+    private static void addTV(Seller seller) {
         System.out.println("Please enter the requested information");
         System.out.println("Name:");
         String name = input.nextLine();
@@ -200,7 +200,7 @@ public class AddProduct {
                 , relocation, screenSize);
     }
 
-    public static void addRefrigerator(Seller seller) {
+    private static void addRefrigerator(Seller seller) {
         System.out.println("Please enter the requested information");
         System.out.println("Name:");
         String name = input.nextLine();
@@ -226,7 +226,7 @@ public class AddProduct {
                 warranty, capacity, type, haveFreezer);
     }
 
-    public static void addFood(Seller seller) {
+    private static void addFood(Seller seller) {
         System.out.println("Please enter the requested information");
         System.out.println("Name:");
         String name = input.nextLine();
