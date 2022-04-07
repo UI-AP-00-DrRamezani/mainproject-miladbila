@@ -1,13 +1,14 @@
 package shop.entities;
 
+import shop.entities.products.Product;
 import shop.roles.Buyer;
 
 public class Score {
     private final Buyer user;
     private double score;
-    private final String product;
+    private final Product product;
 
-    public Score(Buyer user, double score, String product) {
+    public Score(Buyer user, double score, Product product) {
         this.user = user;
         this.score = score;
         this.product = product;
@@ -25,7 +26,7 @@ public class Score {
         this.score = score;
     }
 
-    public String getProduct() {
+    public Product getProduct() {
         return product;
     }
 }
