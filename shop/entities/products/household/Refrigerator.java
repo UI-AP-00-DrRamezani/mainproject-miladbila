@@ -38,4 +38,12 @@ public class Refrigerator extends HouseholdProducts {
     public void setHaveFreezer(boolean haveFreezer) {
         this.haveFreezer = haveFreezer;
     }
+
+    @Override
+    public String toString() {
+        return "Category Laptop\nName: " + getName() + "\nBrand: " + getBrand() + "\nPrice: " + getPrice() + "\nSeller name: "
+                + getSeller().getCompanyName() + "\nInventory :" + getInventory() + "Energy consumption degree: " +
+                getEnergyConsumptionDegree() + "Warranty: " + isWarranty() + "Capacity: " + getCapacity() +
+                "Type: " + getType() + "ّFreezer: " + haveFreezer + "\nexplanation:\n" + getExplanation();
+    }
 }

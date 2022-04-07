@@ -38,4 +38,12 @@ public class Gaz extends HouseholdProducts {
     public void setHaveOven(boolean haveOven) {
         this.haveOven = haveOven;
     }
+
+    @Override
+    public String toString() {
+        return "Category Laptop\nName: " + getName() + "\nBrand: " + getBrand() + "\nPrice: " + getPrice() + "\nSeller name: "
+                + getSeller().getCompanyName() + "\nInventory :" + getInventory() + "Energy consumption degree: " +
+                getEnergyConsumptionDegree() + "Warranty: " + isWarranty() + "Flame count: " + getFlameCount() +
+                "Material: " + getMaterial() + "Oven: " + isHaveOven() + "\nexplanation:\n" + getExplanation();
+    }
 }

@@ -28,4 +28,13 @@ public class TV extends HouseholdProducts {
     public void setScreenSize(double screenSize) {
         this.screenSize = screenSize;
     }
+
+
+    @Override
+    public String toString() {
+        return "Category Laptop\nName: " + getName() + "\nBrand: " + getBrand() + "\nPrice: " + getPrice() + "\nSeller name: "
+                + getSeller().getCompanyName() + "\nInventory :" + getInventory() + "Energy consumption degree: " +
+                getEnergyConsumptionDegree() + "Warranty: " + isWarranty() + "Relocation: " + getRelocation() +
+                "Screen size: " + getScreenSize() + "\nexplanation:\n" + getExplanation();
+    }
 }

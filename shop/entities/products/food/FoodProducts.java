@@ -29,4 +29,11 @@ public class FoodProducts extends Product {
     public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
     }
+
+    @Override
+    public String toString() {
+        return "Category Laptop\nName: " + getName() + "\nBrand: " + getBrand() + "\nPrice: " + getPrice() + "\nSeller name: "
+                + getSeller().getCompanyName() + "\nInventory :" + getInventory() + "Production date: " + getProductionDate()
+                + "Expiration date: " + getExpirationDate() + "\nexplanation:\n" + getExplanation();
+    }
 }

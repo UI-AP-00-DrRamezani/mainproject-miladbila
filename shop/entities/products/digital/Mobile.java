@@ -28,4 +28,12 @@ public class Mobile extends DigitalProducts {
     public void setCamera(double camera) {
         this.camera = camera;
     }
+
+    @Override
+    public String toString() {
+        return "Category Laptop\nName: " + getName() + "\nBrand: " + getBrand() + "\nPrice: " + getPrice() + "\nSeller name: "
+                + getSeller().getCompanyName() + "\nInventory :" + getInventory() + "\nStorage capacity: " + getStorageCapacity()
+                + "\nRam capacity: " + getRamCapacity() + "\nOS: " + getOS() + "\nweight" + getWeight() + "\ndimensions" +
+                getDimensions() + "\nSim card count: " + getSimCount() + "\nCamera: " + getCamera() + "\nexplanation:\n" + getExplanation();
+    }
 }

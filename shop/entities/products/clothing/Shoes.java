@@ -32,4 +32,11 @@ public class Shoes extends ClothingProducts {
     public void setType(ShoesType type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "Category Laptop\nName: " + getName() + "\nBrand: " + getBrand() + "\nPrice: " + getPrice() + "\nSeller name: "
+                + getSeller().getCompanyName() + "\nInventory :" + getInventory() + "Producing country: " + getProducingCountry()
+                + "Material:" + getMaterial() + "Size: " + getSize() + "Shoes type: " + getType() + "\nexplanation:\n" + getExplanation();
+    }
 }

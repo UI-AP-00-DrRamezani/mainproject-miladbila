@@ -28,4 +28,12 @@ public class Laptop extends DigitalProducts {
     public void setGaming(boolean gaming) {
         isGaming = gaming;
     }
+
+    @Override
+    public String toString() {
+        return "Category Laptop\nName: " + getName() + "\nBrand: " + getBrand() + "\nPrice: " + getPrice() + "\nSeller name: "
+                + getSeller().getCompanyName() + "\nInventory :" + getInventory() + "\nStorage capacity: " + getStorageCapacity()
+                + "\nRam capacity: " + getRamCapacity() + "\nOS: " + getOS() + "\nweight" + getWeight() + "\ndimensions" +
+                getDimensions() + "\nCPU: " + getCPU() + "\ngaming" + isGaming() + "\nexplanation:\n" + getExplanation();
+    }
 }
