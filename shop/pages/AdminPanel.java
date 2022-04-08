@@ -101,7 +101,7 @@ public class AdminPanel {
         String email = input.nextLine();
         if (!email.equals(""))
             Admin.getADMIN().setEmail(email);
-        System.out.println("email");
+        System.out.println("phone number");
         String phoneNumber = input.nextLine();
         if (!phoneNumber.equals(""))
             Admin.getADMIN().setPhoneNumber(Integer.parseInt(phoneNumber));
