@@ -44,22 +44,26 @@ public class AddProduct {
         double price = input.nextDouble();
         System.out.println("Inventory:");
         int inventory = input.nextInt();
+        input.nextLine();
         System.out.println("Product Explanation:");
         String explanation = input.nextLine();
         System.out.println("Storage Capacity:");
         int storageCapacity = input.nextInt();
         System.out.println("Ram Capacity:");
         int ramCapacity = input.nextInt();
+        input.nextLine();
         System.out.println("OS:");
         String OS = input.nextLine();
         System.out.println("Weight:");
         double weight = input.nextDouble();
+        input.nextLine();
         System.out.println("Dimensions:");
         String dimensions = input.nextLine();
         System.out.println("Sim card count:");
         int simCount = input.nextInt();
         System.out.println("Camera:");
         double camera = input.nextDouble();
+        input.nextLine();
         AddProductController.addMobile(name, brand, price, seller, inventory, explanation, storageCapacity, ramCapacity,
                 OS, weight, dimensions, simCount, camera);
     }
@@ -74,22 +78,26 @@ public class AddProduct {
         double price = input.nextDouble();
         System.out.println("Inventory:");
         int inventory = input.nextInt();
+        input.nextLine();
         System.out.println("Product Explanation:");
         String explanation = input.nextLine();
         System.out.println("Storage Capacity:");
         int storageCapacity = input.nextInt();
         System.out.println("Ram Capacity:");
         int ramCapacity = input.nextInt();
+        input.nextLine();
         System.out.println("OS:");
         String OS = input.nextLine();
         System.out.println("Weight:");
         double weight = input.nextDouble();
+        input.nextLine();
         System.out.println("Dimensions:");
         String dimensions = input.nextLine();
         System.out.println("CPU:");
         String CPU = input.nextLine();
         System.out.println("Is that laptop gaming?(y/n)");
         boolean isGaming = input.nextLine().equals("y");
+        input.nextLine();
         AddProductController.addLaptop(name, brand, price, seller, inventory, explanation, storageCapacity, ramCapacity,
                 OS, weight, dimensions, CPU, isGaming);
     }
@@ -104,6 +112,7 @@ public class AddProduct {
         double price = input.nextDouble();
         System.out.println("Inventory:");
         int inventory = input.nextInt();
+        input.nextLine();
         System.out.println("Product Explanation:");
         String explanation = input.nextLine();
         System.out.println("Producing Country:");
@@ -118,6 +127,7 @@ public class AddProduct {
             type = Dress.ClothingType.shirt;
         else
             type = Dress.ClothingType.pants;
+        input.nextLine();
         AddProductController.addDress(name, brand, price, seller, inventory, explanation, producingCountry, material, size, type);
     }
 
@@ -131,6 +141,7 @@ public class AddProduct {
         double price = input.nextDouble();
         System.out.println("Inventory:");
         int inventory = input.nextInt();
+        input.nextLine();
         System.out.println("Product Explanation:");
         String explanation = input.nextLine();
         System.out.println("Producing Country:");
@@ -147,6 +158,7 @@ public class AddProduct {
             type = Shoes.ShoesType.sport;
         else
             type = Shoes.ShoesType.formal;
+        input.nextLine();
         AddProductController.addShoes(name, brand, price, seller, inventory, explanation, producingCountry, material, size, type);
     }
 
@@ -160,14 +172,17 @@ public class AddProduct {
         double price = input.nextDouble();
         System.out.println("Inventory:");
         int inventory = input.nextInt();
+        input.nextLine();
         System.out.println("Product Explanation:");
         String explanation = input.nextLine();
         System.out.println("Energy Consumption Degree:");
         int energyConsumptionDegree = input.nextInt();
+        input.nextLine();
         System.out.println("Warranty(y/n)");
         boolean warranty = input.nextLine().equals("y");
         System.out.println("Flame count:");
         int flameCount = input.nextInt();
+        input.nextLine();
         System.out.println("Material:");
         String material = input.nextLine();
         System.out.println("Is gaz have oven(y/n)");
@@ -186,16 +201,19 @@ public class AddProduct {
         double price = input.nextDouble();
         System.out.println("Inventory:");
         int inventory = input.nextInt();
+        input.nextLine();
         System.out.println("Product Explanation:");
         String explanation = input.nextLine();
         System.out.println("Energy Consumption Degree:");
         int energyConsumptionDegree = input.nextInt();
+        input.nextLine();
         System.out.println("Warranty(y/n)");
         boolean warranty = input.nextLine().equals("y");
         System.out.println("Relocation:");
         String relocation = input.nextLine();
         System.out.println("Screen Size:");
         double screenSize = input.nextDouble();
+        input.nextLine();
         AddProductController.addTV(name, brand, price, seller, inventory, explanation, energyConsumptionDegree, warranty
                 , relocation, screenSize);
     }
@@ -210,14 +228,17 @@ public class AddProduct {
         double price = input.nextDouble();
         System.out.println("Inventory:");
         int inventory = input.nextInt();
+        input.nextLine();
         System.out.println("Product Explanation:");
         String explanation = input.nextLine();
         System.out.println("Energy Consumption Degree:");
         int energyConsumptionDegree = input.nextInt();
+        input.nextLine();
         System.out.println("Warranty(y/n)");
         boolean warranty = input.nextLine().equals("y");
         System.out.println("Capacity:");
         double capacity = input.nextDouble();
+        input.nextLine();
         System.out.println("Type:");
         String type = input.nextLine();
         System.out.println("Is refrigerator have freezer(y/n)");
@@ -236,6 +257,7 @@ public class AddProduct {
         double price = input.nextDouble();
         System.out.println("Inventory:");
         int inventory = input.nextInt();
+        input.nextLine();
         System.out.println("Product Explanation:");
         String explanation = input.nextLine();
         System.out.println("Production Date");
