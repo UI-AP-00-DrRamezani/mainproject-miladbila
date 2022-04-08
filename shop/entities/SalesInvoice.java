@@ -2,6 +2,8 @@ package shop.entities;
 
 import shop.entities.products.Product;
 
+import java.util.Arrays;
+
 public class SalesInvoice {
     private final int ID;
     private final String date;
@@ -47,4 +49,13 @@ public class SalesInvoice {
         this.deliveryStatus = deliveryStatus;
     }
 
+    @Override
+    public String toString() {
+        return "ID=" + ID +
+                "\ndate='" + date +
+                "\namountPaid=" + amountPaid +
+                "\nproductsPurchased=" + Arrays.toString(productsPurchased) +
+                "\nsellerName='" + sellerName +
+                "\ndeliveryStatus=" + deliveryStatus;
+    }
 }
