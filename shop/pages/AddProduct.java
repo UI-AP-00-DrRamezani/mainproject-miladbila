@@ -22,7 +22,9 @@ public class AddProduct {
         System.out.println("    7. Refrigerator");
         System.out.println("Food Product");
         System.out.println("    8. Food");
-        switch (input.nextInt()) {
+        int n = input.nextInt();
+        input.nextLine();
+        switch (n) {
             case 1 -> addMobile(seller);
             case 2 -> addLaptop(seller);
             case 3 -> addDress(seller);

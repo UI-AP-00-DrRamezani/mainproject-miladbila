@@ -23,7 +23,9 @@ public class ShowProductList {
         System.out.println("    7. Refrigerator");
         System.out.println("Food Product");
         System.out.println("    8. Food");
-        switch (input.nextInt()) {
+        int n = input.nextInt();
+        input.nextLine();
+        switch (n) {
             case 1 -> addFilterMobile(buyer);
             case 2 -> addFilterLaptop(buyer);
             case 3 -> addFilterDress(buyer);
@@ -53,7 +55,6 @@ public class ShowProductList {
         String brand = input.nextLine();
         System.out.println("cpu");
         String cpu = input.nextLine();
-        input.nextLine();
         System.out.println("only available products(y/n)");
         String availability = input.nextLine();
         ShowProductListController.addFilterLaptop(buyer, brand, cpu, availability);
@@ -65,7 +66,6 @@ public class ShowProductList {
         String brand = input.nextLine();
         System.out.println("expire date");
         String expireDate = input.nextLine();
-        input.nextLine();
         System.out.println("only available products(y/n)");
         String availability = input.nextLine();
         ShowProductListController.addFilterFood(buyer, brand, expireDate, availability);
@@ -77,7 +77,6 @@ public class ShowProductList {
         String brand = input.nextLine();
         System.out.println("material");
         String material = input.nextLine();
-        input.nextLine();
         System.out.println("only available products(y/n)");
         String availability = input.nextLine();
         ShowProductListController.addFilterGaz(buyer, brand, material, availability);
@@ -89,7 +88,6 @@ public class ShowProductList {
         String brand = input.nextLine();
         System.out.println("screen relocation");
         String relocation = input.nextLine();
-        input.nextLine();
         System.out.println("only available products(y/n)");
         String availability = input.nextLine();
         ShowProductListController.addFilterTV(buyer, brand, relocation, availability);
@@ -102,7 +100,6 @@ public class ShowProductList {
         String brand = input.nextLine();
         System.out.println("type");
         String type = input.nextLine();
-        input.nextLine();
         System.out.println("only available products(y/n)");
         String availability = input.nextLine();
         ShowProductListController.addFilterRefrigerator(buyer, brand, type, availability);
@@ -114,7 +111,6 @@ public class ShowProductList {
         String brand = input.nextLine();
         System.out.println("size");
         String size = input.nextLine();
-        input.nextLine();
         System.out.println("only available products(y/n)");
         String availability = input.nextLine();
         ShowProductListController.addFilterDress(buyer, brand, size, availability);
@@ -126,7 +122,6 @@ public class ShowProductList {
         String brand = input.nextLine();
         System.out.println("size");
         String size = input.nextLine();
-        input.nextLine();
         System.out.println("only available products(y/n)");
         String availability = input.nextLine();
         ShowProductListController.addFilterShoes(buyer, brand, size, availability);
@@ -140,7 +135,7 @@ public class ShowProductList {
             return;
         } else if (n.equals("s")) {
             System.out.println("enter search text");
-            ShowProductListController.search(buyer, input.nextLine(),products);
+            ShowProductListController.search(buyer, input.nextLine(), products);
         } else {
             ShowProductListController.selectProduct(Integer.parseInt(n), buyer, products);
         }
