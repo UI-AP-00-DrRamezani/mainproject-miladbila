@@ -11,7 +11,7 @@ abstract public class Product {
     private final Seller seller;
     private int inventory;
     private String explanation;
-    private int averageScoreOfBuyers;
+    private double averageScoreOfBuyers;
     private status confirmStatus = status.PENDING;
 
     public enum status {PENDING, CONFIRMED, REJECTED, DELETE_REQUEST, EDITED}
@@ -75,11 +75,11 @@ abstract public class Product {
         this.explanation = explanation;
     }
 
-    public int getAverageScoreOfBuyers() {
+    public double getAverageScoreOfBuyers() {
         return averageScoreOfBuyers;
     }
 
-    public void setAverageScoreOfBuyers(int averageScoreOfBuyers) {
+    public void setAverageScoreOfBuyers(double averageScoreOfBuyers) {
         this.averageScoreOfBuyers = averageScoreOfBuyers;
     }
 
