@@ -2,6 +2,8 @@ package shop.entities;
 
 import shop.entities.products.Product;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
 public class PurchaseInvoice {
@@ -12,9 +14,11 @@ public class PurchaseInvoice {
     private boolean deliveryStatus;
     private static int lastId = 100000;
 
-    public PurchaseInvoice(String date, double amountPaid, Product[] productsPurchased) {
+    public PurchaseInvoice(double amountPaid, Product[] productsPurchased) {
         this.ID = lastId++;
-        this.date = date;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        this.date = dtf.format(now);
         this.amountPaid = amountPaid;
         this.productsPurchased = productsPurchased;
         this.deliveryStatus = false;
