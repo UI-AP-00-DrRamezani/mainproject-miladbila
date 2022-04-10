@@ -134,12 +134,15 @@ public class ShowProductList {
 
     public static void ShowProductList(Buyer buyer, ArrayList<Product> products) {
         ShowProductListController.ShowProductList(products);
-        System.out.println("Select product and for back press 0:");
-        int n = input.nextInt();
-        input.nextLine();
-        if (n == 0) {
+        System.out.println("Select product , for search enter s and for back enter 0:");
+        String n = input.nextLine();
+        if (n.equals("0")) {
             return;
+        } else if (n.equals("s")) {
+            System.out.println("enter search text");
+            ShowProductListController.search(buyer, input.nextLine(),products);
+        } else {
+            ShowProductListController.selectProduct(Integer.parseInt(n), buyer, products);
         }
-        ShowProductListController.selectProduct(n, buyer, products);
     }
 }

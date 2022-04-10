@@ -324,4 +324,12 @@ public class ShowProductListController {
 
         ShowProductList.ShowProductList(buyer, finalTemp);
     }
+
+    public static void search(Buyer buyer, String search, ArrayList<Product> products) {
+        ArrayList<Product> temp = new ArrayList<>();
+        for (Product a : products)
+            if (a.getName().equals(search))
+                temp.add(a);
+        ShowProductList.ShowProductList(buyer, temp);
+    }
 }
