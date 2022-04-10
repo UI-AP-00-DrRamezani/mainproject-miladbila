@@ -14,7 +14,7 @@ abstract public class Product {
     private int averageScoreOfBuyers;
     private status confirmStatus = status.PENDING;
 
-    public enum status {PENDING, CONFIRMED, REJECTED}
+    public enum status {PENDING, CONFIRMED, REJECTED, DELETE_REQUEST, EDITED}
 
     public Product(String name, String brand, double price, Seller seller, int inventory, String explanation) {
         this.ID = LAST_ID++;
