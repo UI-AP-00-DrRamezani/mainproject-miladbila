@@ -1,24 +1,29 @@
 package shop.entities;
 
+import shop.controller.products.ProductsController;
 import shop.entities.products.Product;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
 public class SalesInvoice {
     private final int ID;
     private final String date;
     private final double amountPaid;
-    private final Product[] productsPurchased;
-    private final String sellerName;
+    private final Product productSold;
+    private final String buyerName;
     private boolean deliveryStatus;
     private static int lastId = 200000;
 
-    public SalesInvoice(String date, double amountPaid, Product[] productsPurchased, String sellerName, boolean deliveryStatus) {
+    public SalesInvoice(double amountPaid, Product productSold, String buyerName) {
         this.ID = lastId++;
-        this.date = date;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        this.date = dtf.format(now);
         this.amountPaid = amountPaid;
-        this.productsPurchased = productsPurchased;
-        this.sellerName = sellerName;
+        this.productSold = productSold;
+        this.buyerName = buyerName;
         this.deliveryStatus = false;
     }
 
@@ -34,12 +39,12 @@ public class SalesInvoice {
         return amountPaid;
     }
 
-    public Product[] getProductsPurchased() {
-        return productsPurchased;
+    public Product getProductSold() {
+        return productSold;
     }
 
-    public String getSellerName() {
-        return sellerName;
+    public String getBuyerName() {
+        return buyerName;
     }
 
     public boolean isDeliveryStatus() {
@@ -55,8 +60,8 @@ public class SalesInvoice {
         return "ID=" + ID +
                 "\ndate='" + date +
                 "\namountPaid=" + amountPaid +
-                "\nproductsPurchased=" + Arrays.toString(productsPurchased) +
-                "\nsellerName='" + sellerName +
+                "\nproductsPurchased=" + ProductsController.shortProductSpec(productSold) +
+                "\nbuyerName='" + buyerName +
                 "\ndeliveryStatus=" + deliveryStatus;
     }
 }
