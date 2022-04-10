@@ -65,6 +65,7 @@ public class BuyerPanel {
         System.out.println("If you want the purchase to be complete, enter 1");
         if (input.nextLine().equals("1")) {
             System.out.println();
+            BuyerPanelController.purchase(buyer);
         }
     }
 }
