@@ -9,16 +9,14 @@ public class PurchaseInvoice {
     private final String date;
     private final double amountPaid;
     private final Product[] productsPurchased;
-    private final String sellerName;
     private boolean deliveryStatus;
     private static int lastId = 100000;
 
-    public PurchaseInvoice(String date, double amountPaid, Product[] productsPurchased, String sellerName) {
+    public PurchaseInvoice(String date, double amountPaid, Product[] productsPurchased) {
         this.ID = lastId++;
         this.date = date;
         this.amountPaid = amountPaid;
         this.productsPurchased = productsPurchased;
-        this.sellerName = sellerName;
         this.deliveryStatus = false;
     }
 
@@ -38,10 +36,6 @@ public class PurchaseInvoice {
         return productsPurchased;
     }
 
-    public String getSellerName() {
-        return sellerName;
-    }
-
     public boolean isDeliveryStatus() {
         return deliveryStatus;
     }
@@ -56,7 +50,6 @@ public class PurchaseInvoice {
                 "\ndate='" + date +
                 "\namountPaid=" + amountPaid +
                 "\nproductsPurchased=" + Arrays.toString(productsPurchased) +
-                "\nsellerName='" + sellerName +
                 "\ndeliveryStatus=" + deliveryStatus;
     }
 }
