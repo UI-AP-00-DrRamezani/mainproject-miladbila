@@ -11,9 +11,10 @@ public class SalesInvoice {
     private final Product[] productsPurchased;
     private final String sellerName;
     private boolean deliveryStatus;
+    private static int lastId = 200000;
 
-    public SalesInvoice(int ID, String date, double amountPaid, Product[] productsPurchased, String sellerName, boolean deliveryStatus) {
-        this.ID = ID;
+    public SalesInvoice(String date, double amountPaid, Product[] productsPurchased, String sellerName, boolean deliveryStatus) {
+        this.ID = lastId++;
         this.date = date;
         this.amountPaid = amountPaid;
         this.productsPurchased = productsPurchased;
