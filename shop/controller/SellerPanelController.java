@@ -11,7 +11,7 @@ import shop.roles.Seller;
 public class SellerPanelController {
     public static void productList(Seller seller) {
         for (Product a:seller.getProductsForSale()) {
-            ProductsController.shortProductSpec(a);
+            System.out.println(ProductsController.shortProductSpec(a));
         }
     }
 
