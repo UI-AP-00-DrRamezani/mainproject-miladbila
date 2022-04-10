@@ -48,6 +48,7 @@ public class AdminPanelController {
     }
 
     public static void deleteProduct(int index) {
-        ProductsController.getProducts().remove(index - 1);
+        ProductsController.getProducts().get(index - 1).setConfirmStatus(Product.status.REJECTED);
+
     }
 }
