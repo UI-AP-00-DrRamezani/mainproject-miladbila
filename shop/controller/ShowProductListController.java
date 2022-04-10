@@ -20,7 +20,8 @@ public class ShowProductListController {
     public static void ShowProductList(ArrayList<Product> products) {
         int i = 1;
         for (Product a : products) {
-            System.out.println(i + ". " + ProductsController.shortProductSpec(a));
+            if (a.getConfirmStatus() == Product.status.CONFIRMED || a.getConfirmStatus() == Product.status.DELETE_REQUEST)
+                System.out.println(i + ". " + ProductsController.shortProductSpec(a));
             i++;
         }
     }
