@@ -44,6 +44,10 @@ public class AdminPanelController {
     }
 
     public static void changeProductsStatus(int index, Product.status status) {
+        ProductsController.getProducts().get(index - 1).setConfirmStatus(status);
+    }
 
+    public static void deleteProduct(int index) {
+        ProductsController.getProducts().remove(index - 1);
     }
 }

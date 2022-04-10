@@ -14,31 +14,21 @@ public class AdminPanel {
             System.out.println("1. Change personal information");
             System.out.println("2. View sellers registration requests");
             System.out.println("3. View product addition / editing requests");
-            System.out.println("4. View the list of all users");
-            System.out.println("5. Delete a user");
-            System.out.println("6. View categories list");
-            System.out.println("7. Logout");
+            System.out.println("4. View product addition / editing requests");
+            System.out.println("5. View the list of all users");
+            System.out.println("6. Delete a user");
+            System.out.println("7. View categories list");
+            System.out.println("8. Logout");
             int selectedNumber = input.nextInt();
             switch (selectedNumber) {
-                case 1:
-                    changeInfo();
-                    break;
-                case 2:
-                    sellersRegistrationRequests();
-                    break;
-                case 3:
-                    changeProductStatus();
-                    break;
-                case 4:
-                    usersList();
-                    break;
-                case 5:
-                    deleteUser();
-                    break;
-                case 6:
-
-                case 7:
-                    return;
+                case 1 -> changeInfo();
+                case 2 -> sellersRegistrationRequests();
+                case 3 -> changeProductStatus();
+                case 4 -> deleteProduct();
+                case 5 -> usersList();
+                case 6 -> deleteUser();
+                case 7 -> ShowProductList.selectCategory(null);
+                case 8 -> UserArea.userArea();
             }
         }
     }
@@ -52,6 +42,15 @@ public class AdminPanel {
             AdminPanelController.changeProductsStatus(userIndex, Product.status.CONFIRMED);
         else
             AdminPanelController.changeProductsStatus(userIndex, Product.status.REJECTED);
+    }
+
+    private static void deleteProduct() {
+        AdminPanelController.viewProducts();
+        System.out.println("Enter number of product that you want change it status");
+        int userIndex= input.nextInt();
+        System.out.println("if you want delete that product enter 1 otherwise enter 2");
+        if (input.nextInt()==1)
+            AdminPanelController.deleteProduct(userIndex);
     }
 
     private static void sellersRegistrationRequests() {
