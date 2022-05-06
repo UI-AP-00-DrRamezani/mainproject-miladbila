@@ -80,4 +80,11 @@ public class Gaz extends HouseholdProducts {
         else
             return 1;
     }
+
+    @Override
+    public int calculateGuaranteeTime() {
+        if (warranty)
+            return (int) (flameCount * 2 + getPrice());
+        return 0;
+    }
 }

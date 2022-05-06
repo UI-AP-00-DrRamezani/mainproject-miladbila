@@ -80,4 +80,11 @@ public class Refrigerator extends HouseholdProducts {
         else
             return 1;
     }
+
+    @Override
+    public int calculateGuaranteeTime() {
+        if (warranty)
+            return (int) (capacity * 2 + getPrice());
+        return 0;
+    }
 }

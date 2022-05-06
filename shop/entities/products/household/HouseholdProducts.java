@@ -1,9 +1,10 @@
 package shop.entities.products.household;
 
+import shop.entities.WarrantyOption;
 import shop.entities.products.Product;
 import shop.roles.Seller;
 
-abstract public class HouseholdProducts extends Product {
+abstract public class HouseholdProducts extends Product implements WarrantyOption {
     int energyConsumptionDegree;
     boolean warranty;
 
@@ -28,6 +29,11 @@ abstract public class HouseholdProducts extends Product {
 
     public void setWarranty(boolean warranty) {
         this.warranty = warranty;
+    }
+
+    @Override
+    public Double calculateGuaranteeValue() {
+        return getPrice() * 0.5 - energyConsumptionDegree;
     }
 }
 

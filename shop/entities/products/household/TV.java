@@ -71,4 +71,11 @@ public class TV extends HouseholdProducts {
         else
             return 1;
     }
+
+    @Override
+    public int calculateGuaranteeTime() {
+        if (warranty)
+            return (int) (screenSize * 2 + getPrice());
+        return 0;
+    }
 }
