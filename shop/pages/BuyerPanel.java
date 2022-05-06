@@ -1,7 +1,6 @@
 package shop.pages;
 
 import shop.controller.BuyerPanelController;
-import shop.controller.ProductPageController;
 import shop.roles.Buyer;
 
 import static shop.pages.Main.input;

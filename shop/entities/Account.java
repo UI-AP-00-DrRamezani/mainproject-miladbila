@@ -1,7 +1,5 @@
 package shop.entities;
 
-import java.util.ArrayList;
-
 public class Account {
     private final String username;
     private String name;

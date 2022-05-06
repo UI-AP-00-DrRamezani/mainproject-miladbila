@@ -44,7 +44,7 @@ public class Dress extends ClothingProducts {
 
     @Override
     public int compareTo(Object o) {
-        if (o instanceof Mobile||o instanceof Laptop)
+        if (o instanceof Mobile || o instanceof Laptop)
             return -1;
         else if (o instanceof Dress)
             if (this.getName().compareTo(((Dress) o).getName()) == 0)
@@ -56,13 +56,13 @@ public class Dress extends ClothingProducts {
                     return 1;
                 else if (this.getAverageScoreOfBuyers() < ((Dress) o).getAverageScoreOfBuyers())
                     return -1;
-                else if (this.getPrice()>((Dress) o).getPrice())
+                else if (this.getPrice() > ((Dress) o).getPrice())
                     return 1;
-                else if (this.getPrice()<((Dress) o).getPrice())
+                else if (this.getPrice() < ((Dress) o).getPrice())
                     return -1;
-                else if (this.getInventory()>0&&((Dress) o).getInventory()<1)
+                else if (this.getInventory() > 0 && ((Dress) o).getInventory() < 1)
                     return 1;
-                else if (this.getInventory()<1&&((Dress) o).getInventory()>0)
+                else if (this.getInventory() < 1 && ((Dress) o).getInventory() > 0)
                     return -1;
                 else
                     return 0;

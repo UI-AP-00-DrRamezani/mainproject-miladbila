@@ -36,9 +36,9 @@ public class AdminPanel {
     private static void changeProductStatus() {
         AdminPanelController.viewProducts();
         System.out.println("Enter number of product that you want change it status");
-        int userIndex= input.nextInt();
+        int userIndex = input.nextInt();
         System.out.println("if you want confirm that product enter 1 otherwise enter 2");
-        if (input.nextInt()==1)
+        if (input.nextInt() == 1)
             AdminPanelController.changeProductsStatus(userIndex, Product.status.CONFIRMED);
         else
             AdminPanelController.changeProductsStatus(userIndex, Product.status.REJECTED);
@@ -47,18 +47,18 @@ public class AdminPanel {
     private static void deleteProduct() {
         AdminPanelController.viewProducts();
         System.out.println("Enter number of product that you want change it status");
-        int userIndex= input.nextInt();
+        int userIndex = input.nextInt();
         System.out.println("if you want delete that product enter 1 otherwise enter 2");
-        if (input.nextInt()==1)
+        if (input.nextInt() == 1)
             AdminPanelController.deleteProduct(userIndex);
     }
 
     private static void sellersRegistrationRequests() {
         AdminPanelController.sellersList();
         System.out.println("Enter number of user that you want change his/her status");
-        int userIndex= input.nextInt();
+        int userIndex = input.nextInt();
         System.out.println("if you want confirm that user enter 1 otherwise enter 2");
-        if (input.nextInt()==1)
+        if (input.nextInt() == 1)
             AdminPanelController.changeSellerStatus(userIndex, Seller.status.CONFIRMED);
         else
             AdminPanelController.changeSellerStatus(userIndex, Seller.status.REJECTED);

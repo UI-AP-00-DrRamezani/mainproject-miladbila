@@ -9,7 +9,7 @@ public class SingUp {
         System.out.println("Please choose your role");
         System.out.println("1. Buyer");
         System.out.println("2. Seller");
-        int option= input.nextInt();
+        int option = input.nextInt();
         input.nextLine();
         switch (option) {
             case 1 -> SignUpController.buyer();

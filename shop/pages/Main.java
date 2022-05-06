@@ -1,9 +1,5 @@
 package shop.pages;
 
-import shop.controller.AddProductController;
-import shop.controller.BuyerController;
-import shop.controller.SellerController;
-
 import java.util.Scanner;
 
 public class Main {

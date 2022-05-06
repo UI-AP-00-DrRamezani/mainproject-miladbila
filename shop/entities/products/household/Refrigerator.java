@@ -53,7 +53,7 @@ public class Refrigerator extends HouseholdProducts {
 
     @Override
     public int compareTo(Object o) {
-        if (o instanceof Mobile ||o instanceof Laptop ||o instanceof Dress ||o instanceof Shoes ||o instanceof Gaz||o instanceof TV)
+        if (o instanceof Mobile || o instanceof Laptop || o instanceof Dress || o instanceof Shoes || o instanceof Gaz || o instanceof TV)
             return -1;
         else if (o instanceof Refrigerator)
             if (this.getName().compareTo(((Refrigerator) o).getName()) == 0)
@@ -65,13 +65,13 @@ public class Refrigerator extends HouseholdProducts {
                     return 1;
                 else if (this.getAverageScoreOfBuyers() < ((Refrigerator) o).getAverageScoreOfBuyers())
                     return -1;
-                else if (this.getPrice()>((Refrigerator) o).getPrice())
+                else if (this.getPrice() > ((Refrigerator) o).getPrice())
                     return 1;
-                else if (this.getPrice()<((Refrigerator) o).getPrice())
+                else if (this.getPrice() < ((Refrigerator) o).getPrice())
                     return -1;
-                else if (this.getInventory()>0&&((Refrigerator) o).getInventory()<1)
+                else if (this.getInventory() > 0 && ((Refrigerator) o).getInventory() < 1)
                     return 1;
-                else if (this.getInventory()<1&&((Refrigerator) o).getInventory()>0)
+                else if (this.getInventory() < 1 && ((Refrigerator) o).getInventory() > 0)
                     return -1;
                 else
                     return 0;

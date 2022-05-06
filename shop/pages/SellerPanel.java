@@ -89,23 +89,23 @@ public class SellerPanel {
         System.out.println("name");
         String name = input.nextLine();
         if (!name.equals(""))
-            seller.getProductsForSale().get(n-1).setName(name);
+            seller.getProductsForSale().get(n - 1).setName(name);
         System.out.println("brand");
         String brand = input.nextLine();
         if (!brand.equals(""))
-            seller.getProductsForSale().get(n-1).setBrand(brand);
+            seller.getProductsForSale().get(n - 1).setBrand(brand);
         System.out.println("price");
         String price = input.nextLine();
         if (!price.equals(""))
-            seller.getProductsForSale().get(n-1).setPrice(Double.parseDouble(price));
+            seller.getProductsForSale().get(n - 1).setPrice(Double.parseDouble(price));
         System.out.println("inventory");
         String inventory = input.nextLine();
         if (!inventory.equals(""))
-            seller.getProductsForSale().get(n-1).setInventory(Integer.parseInt(inventory));
+            seller.getProductsForSale().get(n - 1).setInventory(Integer.parseInt(inventory));
         System.out.println("explanation");
         String explanation = input.nextLine();
         if (!explanation.equals(""))
-            seller.getProductsForSale().get(n-1).setExplanation(explanation);
+            seller.getProductsForSale().get(n - 1).setExplanation(explanation);
         SellerPanelController.editProduct(n, seller);
         System.out.println("changing information successfully");
     }

@@ -1,6 +1,5 @@
 package shop.entities.products.digital;
 
-import shop.entities.products.Product;
 import shop.roles.Seller;
 
 public class Mobile extends DigitalProducts {
@@ -50,13 +49,13 @@ public class Mobile extends DigitalProducts {
                     return 1;
                 else if (this.getAverageScoreOfBuyers() < ((Mobile) o).getAverageScoreOfBuyers())
                     return -1;
-                else if (this.getPrice()>((Mobile) o).getPrice())
+                else if (this.getPrice() > ((Mobile) o).getPrice())
                     return 1;
-                else if (this.getPrice()<((Mobile) o).getPrice())
+                else if (this.getPrice() < ((Mobile) o).getPrice())
                     return -1;
-                else if (this.getInventory()>0&&((Mobile) o).getInventory()<1)
+                else if (this.getInventory() > 0 && ((Mobile) o).getInventory() < 1)
                     return 1;
-                else if (this.getInventory()<1&&((Mobile) o).getInventory()>0)
+                else if (this.getInventory() < 1 && ((Mobile) o).getInventory() > 0)
                     return -1;
                 else
                     return 0;

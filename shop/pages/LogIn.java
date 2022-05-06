@@ -6,6 +6,7 @@ import static shop.pages.Main.input;
 
 public class LogIn {
     public static boolean loginStatus;
+
     public static void login() {
         while (true) {
             System.out.println("username:");

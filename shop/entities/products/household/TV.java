@@ -41,9 +41,10 @@ public class TV extends HouseholdProducts {
                 getEnergyConsumptionDegree() + "Warranty: " + isWarranty() + "Relocation: " + getRelocation() +
                 "Screen size: " + getScreenSize() + "\nexplanation:\n" + getExplanation();
     }
+
     @Override
     public int compareTo(Object o) {
-        if (o instanceof Mobile ||o instanceof Laptop ||o instanceof Dress ||o instanceof Shoes||o instanceof Gaz)
+        if (o instanceof Mobile || o instanceof Laptop || o instanceof Dress || o instanceof Shoes || o instanceof Gaz)
             return -1;
         else if (o instanceof TV)
             if (this.getName().compareTo(((TV) o).getName()) == 0)
@@ -55,13 +56,13 @@ public class TV extends HouseholdProducts {
                     return 1;
                 else if (this.getAverageScoreOfBuyers() < ((TV) o).getAverageScoreOfBuyers())
                     return -1;
-                else if (this.getPrice()>((TV) o).getPrice())
+                else if (this.getPrice() > ((TV) o).getPrice())
                     return 1;
-                else if (this.getPrice()<((TV) o).getPrice())
+                else if (this.getPrice() < ((TV) o).getPrice())
                     return -1;
-                else if (this.getInventory()>0&&((TV) o).getInventory()<1)
+                else if (this.getInventory() > 0 && ((TV) o).getInventory() < 1)
                     return 1;
-                else if (this.getInventory()<1&&((TV) o).getInventory()>0)
+                else if (this.getInventory() < 1 && ((TV) o).getInventory() > 0)
                     return -1;
                 else
                     return 0;

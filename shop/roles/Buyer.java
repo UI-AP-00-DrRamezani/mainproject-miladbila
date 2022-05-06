@@ -1,8 +1,8 @@
 package shop.roles;
 
 import shop.entities.Account;
-import shop.entities.products.Product;
 import shop.entities.PurchaseInvoice;
+import shop.entities.products.Product;
 
 import java.util.ArrayList;
 

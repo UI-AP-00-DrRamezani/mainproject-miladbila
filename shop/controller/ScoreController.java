@@ -24,6 +24,6 @@ public class ScoreController {
                 counter++;
                 sum += a.getScore();
             }
-        product.setAverageScoreOfBuyers(sum/counter);
+        product.setAverageScoreOfBuyers(sum / counter);
     }
 }

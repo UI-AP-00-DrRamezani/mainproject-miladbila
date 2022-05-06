@@ -24,7 +24,7 @@ public class LogInController {
                         System.out.println("Your account has not yet been confirmed by the administrator. Please wait");
                     else
                         System.out.println("Your account has still been rejected by the administrator");
-                        return;
+                    return;
                 } else
                     break;
         for (Buyer a : BuyerController.getBuyerList())

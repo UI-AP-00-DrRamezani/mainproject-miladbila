@@ -53,7 +53,7 @@ public class Gaz extends HouseholdProducts {
 
     @Override
     public int compareTo(Object o) {
-        if (o instanceof Mobile||o instanceof Laptop||o instanceof Dress||o instanceof Shoes)
+        if (o instanceof Mobile || o instanceof Laptop || o instanceof Dress || o instanceof Shoes)
             return -1;
         else if (o instanceof Gaz)
             if (this.getName().compareTo(((Gaz) o).getName()) == 0)
@@ -65,13 +65,13 @@ public class Gaz extends HouseholdProducts {
                     return 1;
                 else if (this.getAverageScoreOfBuyers() < ((Gaz) o).getAverageScoreOfBuyers())
                     return -1;
-                else if (this.getPrice()>((Gaz) o).getPrice())
+                else if (this.getPrice() > ((Gaz) o).getPrice())
                     return 1;
-                else if (this.getPrice()<((Gaz) o).getPrice())
+                else if (this.getPrice() < ((Gaz) o).getPrice())
                     return -1;
-                else if (this.getInventory()>0&&((Gaz) o).getInventory()<1)
+                else if (this.getInventory() > 0 && ((Gaz) o).getInventory() < 1)
                     return 1;
-                else if (this.getInventory()<1&&((Gaz) o).getInventory()>0)
+                else if (this.getInventory() < 1 && ((Gaz) o).getInventory() > 0)
                     return -1;
                 else
                     return 0;
