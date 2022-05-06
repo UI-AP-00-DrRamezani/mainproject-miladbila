@@ -1,5 +1,9 @@
 package shop.entities.products.household;
 
+import shop.entities.products.clothing.Dress;
+import shop.entities.products.clothing.Shoes;
+import shop.entities.products.digital.Laptop;
+import shop.entities.products.digital.Mobile;
 import shop.roles.Seller;
 
 public class TV extends HouseholdProducts {
@@ -36,5 +40,34 @@ public class TV extends HouseholdProducts {
                 + getSeller().getCompanyName() + "\nInventory :" + getInventory() + "Energy consumption degree: " +
                 getEnergyConsumptionDegree() + "Warranty: " + isWarranty() + "Relocation: " + getRelocation() +
                 "Screen size: " + getScreenSize() + "\nexplanation:\n" + getExplanation();
+    }
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Mobile ||o instanceof Laptop ||o instanceof Dress ||o instanceof Shoes||o instanceof Gaz)
+            return -1;
+        else if (o instanceof TV)
+            if (this.getName().compareTo(((TV) o).getName()) == 0)
+                if (this.screenSize > ((TV) o).getScreenSize())
+                    return 1;
+                else if (this.screenSize < ((TV) o).getScreenSize())
+                    return -1;
+                else if (this.getAverageScoreOfBuyers() > ((TV) o).getAverageScoreOfBuyers())
+                    return 1;
+                else if (this.getAverageScoreOfBuyers() < ((TV) o).getAverageScoreOfBuyers())
+                    return -1;
+                else if (this.getPrice()>((TV) o).getPrice())
+                    return 1;
+                else if (this.getPrice()<((TV) o).getPrice())
+                    return -1;
+                else if (this.getInventory()>0&&((TV) o).getInventory()<1)
+                    return 1;
+                else if (this.getInventory()<1&&((TV) o).getInventory()>0)
+                    return -1;
+                else
+                    return 0;
+            else
+                return this.getName().compareTo(((TV) o).getName());
+        else
+            return 1;
     }
 }

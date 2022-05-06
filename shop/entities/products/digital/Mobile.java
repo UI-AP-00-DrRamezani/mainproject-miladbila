@@ -1,5 +1,6 @@
 package shop.entities.products.digital;
 
+import shop.entities.products.Product;
 import shop.roles.Seller;
 
 public class Mobile extends DigitalProducts {
@@ -35,5 +36,33 @@ public class Mobile extends DigitalProducts {
                 + getSeller().getCompanyName() + "\nInventory :" + getInventory() + "\nStorage capacity: " + getStorageCapacity()
                 + "\nRam capacity: " + getRamCapacity() + "\nOS: " + getOS() + "\nweight" + getWeight() + "\ndimensions" +
                 getDimensions() + "\nSim card count: " + getSimCount() + "\nCamera: " + getCamera() + "\nexplanation:\n" + getExplanation();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Mobile)
+            if (this.getName().compareTo(((Mobile) o).getName()) == 0)
+                if (this.getSimCount() > ((Mobile) o).simCount)
+                    return 1;
+                else if (this.getSimCount() < ((Mobile) o).simCount)
+                    return -1;
+                else if (this.getAverageScoreOfBuyers() > ((Mobile) o).getAverageScoreOfBuyers())
+                    return 1;
+                else if (this.getAverageScoreOfBuyers() < ((Mobile) o).getAverageScoreOfBuyers())
+                    return -1;
+                else if (this.getPrice()>((Mobile) o).getPrice())
+                    return 1;
+                else if (this.getPrice()<((Mobile) o).getPrice())
+                    return -1;
+                else if (this.getInventory()>0&&((Mobile) o).getInventory()<1)
+                    return 1;
+                else if (this.getInventory()<1&&((Mobile) o).getInventory()>0)
+                    return -1;
+                else
+                    return 0;
+            else
+                return this.getName().compareTo(((Mobile) o).getName());
+        else
+            return 1;
     }
 }

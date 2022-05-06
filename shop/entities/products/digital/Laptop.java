@@ -36,4 +36,33 @@ public class Laptop extends DigitalProducts {
                 + "\nRam capacity: " + getRamCapacity() + "\nOS: " + getOS() + "\nweight" + getWeight() + "\ndimensions" +
                 getDimensions() + "\nCPU: " + getCPU() + "\ngaming" + isGaming() + "\nexplanation:\n" + getExplanation();
     }
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Mobile)
+            return -1;
+        else if (o instanceof Laptop)
+            if (this.getName().compareTo(((Laptop) o).getName()) == 0)
+                if (this.getRamCapacity() > ((Laptop) o).getRamCapacity())
+                    return 1;
+                else if (this.getRamCapacity() < ((Laptop) o).getRamCapacity())
+                    return -1;
+                else if (this.getAverageScoreOfBuyers() > ((Laptop) o).getAverageScoreOfBuyers())
+                    return 1;
+                else if (this.getAverageScoreOfBuyers() < ((Laptop) o).getAverageScoreOfBuyers())
+                    return -1;
+                else if (this.getPrice()>((Laptop) o).getPrice())
+                    return 1;
+                else if (this.getPrice()<((Laptop) o).getPrice())
+                    return -1;
+                else if (this.getInventory()>0&&((Laptop) o).getInventory()<1)
+                    return 1;
+                else if (this.getInventory()<1&&((Laptop) o).getInventory()>0)
+                    return -1;
+                else
+                    return 0;
+            else
+                return this.getName().compareTo(((Laptop) o).getName());
+        else
+            return 1;
+    }
 }

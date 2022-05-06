@@ -1,5 +1,7 @@
 package shop.entities.products.clothing;
 
+import shop.entities.products.digital.Laptop;
+import shop.entities.products.digital.Mobile;
 import shop.roles.Seller;
 
 public class Shoes extends ClothingProducts {
@@ -38,5 +40,35 @@ public class Shoes extends ClothingProducts {
         return "Category Laptop\nName: " + getName() + "\nBrand: " + getBrand() + "\nPrice: " + getPrice() + "\nSeller name: "
                 + getSeller().getCompanyName() + "\nInventory :" + getInventory() + "Producing country: " + getProducingCountry()
                 + "Material:" + getMaterial() + "Size: " + getSize() + "Shoes type: " + getType() + "\nexplanation:\n" + getExplanation();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Mobile||o instanceof Laptop||o instanceof Dress)
+            return -1;
+        else if (o instanceof Shoes)
+            if (this.getName().compareTo(((Shoes) o).getName()) == 0)
+                if (this.size > ((Shoes) o).getSize())
+                    return 1;
+                else if (this.size < ((Shoes) o).getSize())
+                    return -1;
+                else if (this.getAverageScoreOfBuyers() > ((Shoes) o).getAverageScoreOfBuyers())
+                    return 1;
+                else if (this.getAverageScoreOfBuyers() < ((Shoes) o).getAverageScoreOfBuyers())
+                    return -1;
+                else if (this.getPrice()>((Shoes) o).getPrice())
+                    return 1;
+                else if (this.getPrice()<((Shoes) o).getPrice())
+                    return -1;
+                else if (this.getInventory()>0&&((Shoes) o).getInventory()<1)
+                    return 1;
+                else if (this.getInventory()<1&&((Shoes) o).getInventory()>0)
+                    return -1;
+                else
+                    return 0;
+            else
+                return this.getName().compareTo(((Shoes) o).getName());
+        else
+            return 1;
     }
 }

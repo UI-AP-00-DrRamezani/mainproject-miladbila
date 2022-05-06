@@ -2,7 +2,7 @@ package shop.entities.products;
 
 import shop.roles.Seller;
 
-abstract public class Product {
+abstract public class Product implements Comparable {
     private static int LAST_ID = 0;
     private final int ID;
     private String name;
@@ -91,4 +91,7 @@ abstract public class Product {
     public void setConfirmStatus(status confirmStatus) {
         this.confirmStatus = confirmStatus;
     }
+
+    @Override
+    public abstract int compareTo(Object o);
 }
