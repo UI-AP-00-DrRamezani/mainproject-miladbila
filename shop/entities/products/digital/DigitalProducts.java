@@ -1,10 +1,11 @@
 package shop.entities.products.digital;
 
+import shop.entities.DiscountOption;
 import shop.entities.WarrantyOption;
 import shop.entities.products.Product;
 import shop.roles.Seller;
 
-abstract public class DigitalProducts extends Product implements WarrantyOption {
+abstract public class DigitalProducts extends Product implements WarrantyOption, DiscountOption {
     private double storageCapacity;
     private double ramCapacity;
     private String OS;

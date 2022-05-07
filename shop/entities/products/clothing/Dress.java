@@ -1,5 +1,6 @@
 package shop.entities.products.clothing;
 
+import shop.entities.Discount;
 import shop.entities.products.digital.Laptop;
 import shop.entities.products.digital.Mobile;
 import shop.roles.Seller;
@@ -70,5 +71,21 @@ public class Dress extends ClothingProducts {
                 return this.getName().compareTo(((Dress) o).getName());
         else
             return 1;
+    }
+
+    @Override
+    public void addDiscount(int capacity, String validityDuration) {
+        this.getDiscountList().add(new Discount(capacity, 30, validityDuration, false));
+    }
+
+    @Override
+    public void allTimeDiscount(int capacity, String validityDuration) {
+        this.getDiscountList().add(new Discount(capacity, 30, validityDuration, true));
+    }
+
+    @Override
+    public void makeDiscountCode(Discount discount) {
+        if (discount.getCode() == null)
+            discount.setCode("dre" + (int) (1000 + (Math.random() * 9999)));
     }
 }

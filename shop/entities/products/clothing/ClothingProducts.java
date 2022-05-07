@@ -1,9 +1,10 @@
 package shop.entities.products.clothing;
 
+import shop.entities.DiscountOption;
 import shop.entities.products.Product;
 import shop.roles.Seller;
 
-abstract public class ClothingProducts extends Product {
+abstract public class ClothingProducts extends Product implements DiscountOption {
     private String producingCountry;
     private String material;
 

@@ -1,6 +1,9 @@
 package shop.entities.products;
 
+import shop.entities.Discount;
 import shop.roles.Seller;
+
+import java.util.ArrayList;
 
 abstract public class Product implements Comparable {
     private static int LAST_ID = 0;
@@ -13,6 +16,7 @@ abstract public class Product implements Comparable {
     private String explanation;
     private double averageScoreOfBuyers;
     private status confirmStatus = status.PENDING;
+    private ArrayList<Discount> discountList = new ArrayList<>();
 
     public enum status {PENDING, CONFIRMED, REJECTED, DELETE_REQUEST, EDITED}
 
@@ -90,6 +94,10 @@ abstract public class Product implements Comparable {
 
     public void setConfirmStatus(status confirmStatus) {
         this.confirmStatus = confirmStatus;
+    }
+
+    public ArrayList<Discount> getDiscountList() {
+        return discountList;
     }
 
     @Override
