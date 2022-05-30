@@ -1,6 +1,7 @@
 package shop.pages;
 
 import shop.controller.BuyerPanelController;
+import shop.exception.InvalidPurchaseException;
 import shop.roles.Buyer;
 
 import static shop.pages.Main.input;
@@ -64,7 +65,11 @@ public class BuyerPanel {
         System.out.println("If you want the purchase to be complete, enter 1");
         if (input.nextLine().equals("1")) {
             System.out.println();
-            BuyerPanelController.purchase(buyer);
+            try {
+                BuyerPanelController.purchase(buyer);
+            } catch (InvalidPurchaseException ex){
+                System.out.println(ex.getMessage());
+            }
         }
     }
 }

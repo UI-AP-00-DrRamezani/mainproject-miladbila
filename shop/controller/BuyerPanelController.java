@@ -4,10 +4,8 @@ import shop.controller.products.ProductsController;
 import shop.entities.PurchaseInvoice;
 import shop.entities.SalesInvoice;
 import shop.entities.products.Product;
+import shop.exception.LackOfMoneyException;
 import shop.roles.Buyer;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class BuyerPanelController {
     public static void cartProducts(Buyer buyer) {
@@ -31,12 +29,8 @@ public class BuyerPanelController {
             priceSum += a.getPrice();
         }
         if (priceSum > buyer.getCredit()) {
-            System.out.println("Your account balance is not enough");
-            return;
+            throw new LackOfMoneyException("Your account balance is not enough");
         }
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println(dtf.format(now));
         buyer.setPurchaseInvoices(new PurchaseInvoice(priceSum, buyer.getCart().toArray(new Product[0])));
         for (Product a : buyer.getCart()) {
             a.getSeller().setSalesHistory(new SalesInvoice(a.getPrice(), a, buyer.getName() + buyer.getLastName()));

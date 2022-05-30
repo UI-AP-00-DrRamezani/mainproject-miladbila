@@ -1,12 +1,11 @@
 package shop.pages;
 
 import shop.controller.SignUpSellerController;
+import shop.exception.UsernameTakenException;
 
 import static shop.pages.Main.input;
 
 public class SignUpSeller {
-    public static String signupStatus;
-
     public static void signUp() {
         System.out.println("Please enter the requested information");
         System.out.println("Name");
@@ -26,8 +25,12 @@ public class SignUpSeller {
         String companyEmail = input.nextLine();
         System.out.println("Password");
         String password = input.nextLine();
-        SignUpSellerController.singUpSeller(username, name, lastname, email, phoneNumber, password, companyName, companyEmail);
-        System.out.println(signupStatus);
-        System.out.println("Please wait for the administrator to confirm your account");
+        try {
+            SignUpSellerController.singUpSeller(username, name, lastname, email, phoneNumber, password, companyName, companyEmail);
+            System.out.println("Your registration is complete");
+            System.out.println("Please wait for the administrator to confirm your account");
+        } catch (UsernameTakenException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }
