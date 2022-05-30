@@ -2,7 +2,7 @@ package shop.exception;
 
 public class LackOfInventoryException extends InvalidPurchaseException {
     LackOfInventoryException(String message) {
-        super(message);
+        super("Invalid purchase:lack of inventory:" + message);
     }
 
     LackOfInventoryException() {

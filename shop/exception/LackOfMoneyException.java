@@ -1,11 +1,11 @@
 package shop.exception;
 
 public class LackOfMoneyException extends InvalidPurchaseException {
-    LackOfMoneyException(String message) {
-        super(message);
+    public LackOfMoneyException(String message) {
+        super("Invalid purchase:lack of money:" + message);
     }
 
-    LackOfMoneyException() {
+    public LackOfMoneyException() {
         super("Invalid purchase:lack of money");
     }
 }

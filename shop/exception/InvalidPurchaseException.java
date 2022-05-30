@@ -2,7 +2,7 @@ package shop.exception;
 
 public class InvalidPurchaseException extends RuntimeException {
     InvalidPurchaseException(String message) {
-        super(message);
+        super("Invalid Purchase:" + message);
     }
 
     InvalidPurchaseException() {

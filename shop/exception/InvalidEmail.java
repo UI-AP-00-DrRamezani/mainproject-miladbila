@@ -2,7 +2,7 @@ package shop.exception;
 
 public class InvalidEmail extends InvalidInputException {
     InvalidEmail(String message) {
-        super(message);
+        super("Invalid input:invalid email:" + message);
     }
 
     InvalidEmail() {
