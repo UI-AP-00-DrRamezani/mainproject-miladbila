@@ -5,6 +5,8 @@ import shop.entities.products.clothing.Dress;
 import shop.entities.products.clothing.Shoes;
 import shop.roles.Seller;
 
+import java.util.InputMismatchException;
+
 import static shop.pages.Main.input;
 
 public class AddProduct {
@@ -22,7 +24,12 @@ public class AddProduct {
         System.out.println("    7. Refrigerator");
         System.out.println("Food Product");
         System.out.println("    8. Food");
-        int n = input.nextInt();
+        int n = 0;
+        try {
+            n = input.nextInt();
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
+        }
         input.nextLine();
         switch (n) {
             case 1 -> addMobile(seller);
@@ -69,8 +76,8 @@ public class AddProduct {
             input.nextLine();
             AddProductController.addMobile(name, brand, price, seller, inventory, explanation, storageCapacity, ramCapacity,
                     OS, weight, dimensions, simCount, camera);
-        } catch (RuntimeException ex) {
-            System.out.println(ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
         }
     }
 
@@ -107,8 +114,8 @@ public class AddProduct {
             input.nextLine();
             AddProductController.addLaptop(name, brand, price, seller, inventory, explanation, storageCapacity, ramCapacity,
                     OS, weight, dimensions, CPU, isGaming);
-        } catch (RuntimeException ex) {
-            System.out.println(ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
         }
     }
 
@@ -140,8 +147,8 @@ public class AddProduct {
                 type = Dress.ClothingType.pants;
             input.nextLine();
             AddProductController.addDress(name, brand, price, seller, inventory, explanation, producingCountry, material, size, type);
-        } catch (RuntimeException ex) {
-            System.out.println(ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
         }
     }
 
@@ -175,8 +182,8 @@ public class AddProduct {
                 type = Shoes.ShoesType.formal;
             input.nextLine();
             AddProductController.addShoes(name, brand, price, seller, inventory, explanation, producingCountry, material, size, type);
-        } catch (RuntimeException ex) {
-            System.out.println(ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
         }
     }
 
@@ -208,8 +215,8 @@ public class AddProduct {
             boolean haveOven = input.nextLine().equals("y");
             AddProductController.addGaz(name, brand, price, seller, inventory, explanation, energyConsumptionDegree, warranty
                     , flameCount, material, haveOven);
-        } catch (RuntimeException ex) {
-            System.out.println(ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
         }
     }
 
@@ -239,8 +246,8 @@ public class AddProduct {
             input.nextLine();
             AddProductController.addTV(name, brand, price, seller, inventory, explanation, energyConsumptionDegree, warranty
                     , relocation, screenSize);
-        } catch (RuntimeException ex) {
-            System.out.println(ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
         }
     }
 
@@ -272,8 +279,8 @@ public class AddProduct {
             boolean haveFreezer = input.nextLine().equals("y");
             AddProductController.addRefrigerator(name, brand, price, seller, inventory, explanation, energyConsumptionDegree,
                     warranty, capacity, type, haveFreezer);
-        } catch (RuntimeException ex) {
-            System.out.println(ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
         }
     }
 
@@ -296,8 +303,8 @@ public class AddProduct {
             System.out.println("Expiration Date");
             String expirationDate = input.nextLine();
             AddProductController.addFood(name, brand, price, seller, inventory, explanation, productionDate, expirationDate);
-        } catch (RuntimeException ex) {
-            System.out.println(ex.getMessage());
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
         }
     }
 

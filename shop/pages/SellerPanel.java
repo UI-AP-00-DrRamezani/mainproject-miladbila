@@ -3,6 +3,8 @@ package shop.pages;
 import shop.controller.SellerPanelController;
 import shop.roles.Seller;
 
+import java.util.InputMismatchException;
+
 import static shop.pages.Main.input;
 
 public class SellerPanel {
@@ -16,7 +18,12 @@ public class SellerPanel {
             System.out.println("5. Edit a product");
             System.out.println("6. Delete a product");
             System.out.println("7. Logout");
-            int selectedNumber = input.nextInt();
+            int selectedNumber = 0;
+            try {
+                selectedNumber = input.nextInt();
+            } catch (InputMismatchException ex) {
+                System.out.println("input type mismatch");
+            }
             input.nextLine();
             switch (selectedNumber) {
                 case 1 -> changeInfo(seller);
@@ -58,7 +65,13 @@ public class SellerPanel {
     private static void showProductList(Seller seller) {
         SellerPanelController.productList(seller);
         System.out.println("Select product and for back press 0:");
-        int n = input.nextInt();
+        int n;
+        try {
+            n = input.nextInt();
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
+            return;
+        }
         input.nextLine();
         if (n == 0) {
             return;
@@ -69,7 +82,13 @@ public class SellerPanel {
     private static void editProduct(Seller seller) {
         SellerPanelController.productList(seller);
         System.out.println("Select product and for back press 0:");
-        int n = input.nextInt();
+        int n;
+        try {
+            n = input.nextInt();
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
+            return;
+        }
         input.nextLine();
         if (n == 0) {
             return;
@@ -80,7 +99,13 @@ public class SellerPanel {
     private static void deleteProduct(Seller seller) {
         SellerPanelController.productList(seller);
         System.out.println("Select product and for back press 0:");
-        int n = input.nextInt();
+        int n;
+        try {
+            n = input.nextInt();
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
+            return;
+        }
         input.nextLine();
         if (n == 0) {
             return;

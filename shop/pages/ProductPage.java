@@ -4,6 +4,8 @@ import shop.controller.ProductPageController;
 import shop.entities.products.Product;
 import shop.roles.Buyer;
 
+import java.util.InputMismatchException;
+
 import static shop.pages.Main.input;
 
 public class ProductPage {
@@ -15,7 +17,12 @@ public class ProductPage {
         System.out.println("2. Submit a comment");
         System.out.println("3. Submit score");
         System.out.println("4. return");
-        int n = input.nextInt();
+        int n = 0;
+        try {
+            n = input.nextInt();
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
+        }
         input.nextLine();
         switch (n) {
             case 1 -> addToCart(product, buyer);
@@ -55,7 +62,13 @@ public class ProductPage {
             return;
         }
         System.out.println("Enter score from 0 to 5");
-        int score = input.nextInt();
+        int score;
+        try {
+            score = input.nextInt();
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
+            return;
+        }
         input.nextLine();
         ProductPageController.score(product, buyer, score);
         System.out.println(scoreStatus);
