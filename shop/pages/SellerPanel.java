@@ -1,6 +1,8 @@
 package shop.pages;
 
 import shop.controller.SellerPanelController;
+import shop.exception.InvalidEmail;
+import shop.exception.InvalidPhoneNumberException;
 import shop.roles.Seller;
 
 import java.util.InputMismatchException;
@@ -50,11 +52,19 @@ public class SellerPanel {
         System.out.println("email");
         String email = input.nextLine();
         if (!email.equals(""))
-            seller.setEmail(email);
+            try {
+                seller.setEmail(email);
+            } catch (InvalidEmail ex){
+                System.out.println(ex.getMessage());
+            }
         System.out.println("phone number");
         String phoneNumber = input.nextLine();
         if (!phoneNumber.equals(""))
-            seller.setPhoneNumber(Integer.parseInt(phoneNumber));
+            try {
+                seller.setPhoneNumber(Integer.parseInt(phoneNumber));
+            } catch (InvalidPhoneNumberException ex) {
+                System.out.println(ex.getMessage());
+            }
         System.out.println("password");
         String password = input.nextLine();
         if (!password.equals(""))

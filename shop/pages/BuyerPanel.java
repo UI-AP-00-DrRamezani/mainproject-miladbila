@@ -1,6 +1,8 @@
 package shop.pages;
 
 import shop.controller.BuyerPanelController;
+import shop.exception.InvalidEmail;
+import shop.exception.InvalidPhoneNumberException;
 import shop.exception.InvalidPurchaseException;
 import shop.roles.Buyer;
 
@@ -49,11 +51,19 @@ public class BuyerPanel {
         System.out.println("email");
         String email = input.nextLine();
         if (!email.equals(""))
-            buyer.setEmail(email);
+            try {
+                buyer.setEmail(email);
+            } catch (InvalidEmail ex) {
+                System.out.println(ex.getMessage());
+            }
         System.out.println("phone number");
         String phoneNumber = input.nextLine();
         if (!phoneNumber.equals(""))
-            buyer.setPhoneNumber(Integer.parseInt(phoneNumber));
+            try {
+                buyer.setPhoneNumber(Integer.parseInt(phoneNumber));
+            } catch (InvalidPhoneNumberException ex) {
+                System.out.println(ex.getMessage());
+            }
         System.out.println("password");
         String password = input.nextLine();
         if (!email.equals(""))

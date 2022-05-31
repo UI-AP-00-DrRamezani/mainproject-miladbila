@@ -1,7 +1,7 @@
 package shop.exception;
 
 public class InvalidPhoneNumberException extends InvalidInputException {
-    InvalidPhoneNumberException(String message) {
+    public InvalidPhoneNumberException(String message) {
         super("Invalid input:invalid phone number:" + message);
     }
 
