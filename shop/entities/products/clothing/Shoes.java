@@ -20,6 +20,13 @@ public class Shoes extends ClothingProducts {
         this.type = type;
     }
 
+    public Shoes(int ID, String name, String brand, double price, Seller seller, int inventory, String explanation,
+                 String producingCountry, String material, int size, ShoesType type) {
+        super(ID, name, brand, price, seller, inventory, explanation, producingCountry, material);
+        this.size = size;
+        this.type = type;
+    }
+
     public int getSize() {
         return size;
     }

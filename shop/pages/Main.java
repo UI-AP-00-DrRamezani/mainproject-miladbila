@@ -1,11 +1,16 @@
 package shop.pages;
 
+import shop.controller.FilesController;
+import shop.controller.FoldersController;
+
 import java.util.Scanner;
 
 public class Main {
     public static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
+        FoldersController.checkFolders();
+        FilesController.readFiles();
         while (true) {
             System.out.println("Welcome to Online Shop\n\n");
             System.out.println("1. UserArea");

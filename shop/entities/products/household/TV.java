@@ -17,6 +17,13 @@ public class TV extends HouseholdProducts {
         this.screenSize = screenSize;
     }
 
+    public TV(int ID, String name, String brand, double price, Seller seller, int inventory, String explanation,
+              int energyConsumptionDegree, boolean warranty, String relocation, double screenSize) {
+        super(ID, name, brand, price, seller, inventory, explanation, energyConsumptionDegree, warranty);
+        this.relocation = relocation;
+        this.screenSize = screenSize;
+    }
+
     public String getRelocation() {
         return relocation;
     }

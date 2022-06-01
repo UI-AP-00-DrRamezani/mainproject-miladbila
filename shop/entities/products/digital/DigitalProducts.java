@@ -22,6 +22,16 @@ abstract public class DigitalProducts extends Product implements WarrantyOption,
         this.dimensions = dimensions;
     }
 
+    public DigitalProducts(int ID, String name, String brand, double price, Seller seller, int inventory, String explanation,
+                           double storageCapacity, double ramCapacity, String OS, double weight, String dimensions) {
+        super(ID, name, brand, price, seller, inventory, explanation);
+        this.storageCapacity = storageCapacity;
+        this.ramCapacity = ramCapacity;
+        this.OS = OS;
+        this.weight = weight;
+        this.dimensions = dimensions;
+    }
+
     public double getStorageCapacity() {
         return storageCapacity;
     }

@@ -19,6 +19,14 @@ public class Refrigerator extends HouseholdProducts {
         this.haveFreezer = haveFreezer;
     }
 
+    public Refrigerator(int ID, String name, String brand, double price, Seller seller, int inventory, String explanation,
+                        int energyConsumptionDegree, boolean warranty, double capacity, String type, boolean haveFreezer) {
+        super(ID, name, brand, price, seller, inventory, explanation, energyConsumptionDegree, warranty);
+        this.capacity = capacity;
+        this.type = type;
+        this.haveFreezer = haveFreezer;
+    }
+
     public double getCapacity() {
         return capacity;
     }

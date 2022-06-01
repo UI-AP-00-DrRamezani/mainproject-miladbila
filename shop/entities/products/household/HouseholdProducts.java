@@ -15,6 +15,13 @@ abstract public class HouseholdProducts extends Product implements WarrantyOptio
         this.warranty = warranty;
     }
 
+    public HouseholdProducts(int ID, String name, String brand, double price, Seller seller, int inventory, String explanation,
+                             int energyConsumptionDegree, boolean warranty) {
+        super(ID, name, brand, price, seller, inventory, explanation);
+        this.energyConsumptionDegree = energyConsumptionDegree;
+        this.warranty = warranty;
+    }
+
     public int getEnergyConsumptionDegree() {
         return energyConsumptionDegree;
     }

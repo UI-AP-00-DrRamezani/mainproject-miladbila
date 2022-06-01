@@ -7,7 +7,8 @@ import shop.entities.products.Product;
 import java.util.ArrayList;
 
 public class Seller extends Account {
-
+    private static int LAST_ID = 1000;
+    private final int ID;
     private String companyName;
     private String companyEmail;
     private ArrayList<Product> productsForSale = new ArrayList<>();
@@ -21,6 +22,17 @@ public class Seller extends Account {
         super(username, name, lastName, email, phoneNumber, password);
         this.companyName = companyName;
         this.companyEmail = companyEmail;
+        this.ID = LAST_ID++;
+    }
+
+    public Seller(int ID, String username, String name, String lastName, String email, int phoneNumber, String password,
+                  String companyName, String companyEmail, status status) {
+        super(username, name, lastName, email, phoneNumber, password);
+        this.companyName = companyName;
+        this.companyEmail = companyEmail;
+        this.ID = ID;
+        LAST_ID = ID++;
+        this.accountStatus = status;
     }
 
     public String getCompanyName() {
@@ -61,5 +73,9 @@ public class Seller extends Account {
 
     public void setAccountStatus(status accountStatus) {
         this.accountStatus = accountStatus;
+    }
+
+    public int getID() {
+        return ID;
     }
 }

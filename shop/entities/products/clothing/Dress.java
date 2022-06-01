@@ -20,6 +20,13 @@ public class Dress extends ClothingProducts {
         this.type = type;
     }
 
+    public Dress(int ID, String name, String brand, double price, Seller seller, int inventory, String explanation,
+                 String producingCountry, String material, int size, ClothingType type) {
+        super(ID, name, brand, price, seller, inventory, explanation, producingCountry, material);
+        this.size = size;
+        this.type = type;
+    }
+
     public int getSize() {
         return size;
     }

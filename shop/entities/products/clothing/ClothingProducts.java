@@ -15,6 +15,13 @@ abstract public class ClothingProducts extends Product implements DiscountOption
         this.material = material;
     }
 
+    public ClothingProducts(int ID, String name, String brand, double price, Seller seller, int inventory, String explanation,
+                            String producingCountry, String material) {
+        super(ID, name, brand, price, seller, inventory, explanation);
+        this.producingCountry = producingCountry;
+        this.material = material;
+    }
+
     public String getProducingCountry() {
         return producingCountry;
     }

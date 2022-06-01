@@ -19,6 +19,14 @@ public class Gaz extends HouseholdProducts {
         this.haveOven = haveOven;
     }
 
+    public Gaz(int ID, String name, String brand, double price, Seller seller, int inventory, String explanation,
+               int energyConsumptionDegree, boolean warranty, int flameCount, String material, boolean haveOven) {
+        super(ID, name, brand, price, seller, inventory, explanation, energyConsumptionDegree, warranty);
+        this.flameCount = flameCount;
+        this.material = material;
+        this.haveOven = haveOven;
+    }
+
     public int getFlameCount() {
         return flameCount;
     }

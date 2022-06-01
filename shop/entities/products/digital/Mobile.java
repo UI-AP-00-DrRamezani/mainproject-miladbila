@@ -14,6 +14,13 @@ public class Mobile extends DigitalProducts {
         this.camera = camera;
     }
 
+    public Mobile(int ID, String name, String brand, double price, Seller seller, int inventory, String explanation, double storageCapacity,
+                  double ramCapacity, String OS, double weight, String dimensions, int simCount, double camera) {
+        super(ID, name, brand, price, seller, inventory, explanation, storageCapacity, ramCapacity, OS, weight, dimensions);
+        this.simCount = simCount;
+        this.camera = camera;
+    }
+
     public int getSimCount() {
         return simCount;
     }

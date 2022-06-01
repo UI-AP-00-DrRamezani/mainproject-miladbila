@@ -16,6 +16,13 @@ public class FoodProducts extends Product implements DiscountOption {
         this.expirationDate = expirationDate;
     }
 
+    public FoodProducts(int ID, String name, String brand, double price, Seller seller, int inventory, String explanation,
+                        String productionDate, String expirationDate) {
+        super(ID, name, brand, price, seller, inventory, explanation);
+        this.productionDate = productionDate;
+        this.expirationDate = expirationDate;
+    }
+
     public String getProductionDate() {
         return productionDate;
     }

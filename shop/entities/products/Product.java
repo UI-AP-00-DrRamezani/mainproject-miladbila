@@ -31,6 +31,18 @@ abstract public class Product implements Comparable {
         this.averageScoreOfBuyers = 0;
     }
 
+    public Product(int ID, String name, String brand, double price, Seller seller, int inventory, String explanation) {
+        this.ID = ID;
+        LAST_ID = ID++;
+        this.name = name;
+        this.brand = brand;
+        this.price = price;
+        this.seller = seller;
+        this.inventory = inventory;
+        this.explanation = explanation;
+        this.averageScoreOfBuyers = 0;
+    }
+
     public int getID() {
         return ID;
     }
