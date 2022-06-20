@@ -23,6 +23,9 @@ public class RefrigeratorController {
 
     public static void setRefrigerators(Refrigerator refrigerator) {
         RefrigeratorController.refrigerators.add(refrigerator);
+        writeRefrigerator(refrigerator);
+    }
+    public static void writeRefrigerator(Refrigerator refrigerator){
         FoldersController.createFolder("saved data\\products\\household\\refrigerators\\productsList\\refrigerator " + refrigerator.getID());
         File file = new File("saved data\\products\\household\\refrigerators\\productsList\\refrigerator " + refrigerator.getID() + "\\spec.txt");
         try {
@@ -51,10 +54,10 @@ public class RefrigeratorController {
         printWriter.println(refrigerator.getType());
         printWriter.println(refrigerator.isHaveFreezer());
         printWriter.close();
-        File file1 = new File("saved data\\users\\sellers\\seller " + refrigerator.getSeller().getID() + "\\products list\\dress " + refrigerator.getID());
+        File file1 = new File("saved data\\users\\sellers\\seller " + refrigerator.getSeller().getID() + "\\products list\\refrigerator " + refrigerator.getID());
         file1.mkdir();
-        Path copied = Paths.get("saved data\\products\\household\\refrigerators\\productsList\\refrigerator " + refrigerator.getID() + "\\spec.txt");
-        Path originalPath = Paths.get("saved data\\users\\sellers\\seller " + refrigerator.getSeller().getID() + "\\products list\\dress " + refrigerator.getID());
+        Path originalPath = Paths.get("saved data\\products\\household\\refrigerators\\productsList\\refrigerator " + refrigerator.getID() + "\\spec.txt");
+        Path copied = Paths.get("saved data\\users\\sellers\\seller " + refrigerator.getSeller().getID() + "\\products list\\refrigerator " + refrigerator.getID() + "\\spec.txt");
         try {
             Files.copy(originalPath, copied, REPLACE_EXISTING);
         } catch (IOException e) {

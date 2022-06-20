@@ -23,6 +23,10 @@ public class MobileController {
 
     public static void setMobiles(Mobile mobile) {
         MobileController.mobiles.add(mobile);
+        writeMobile(mobile);
+    }
+
+    public static void writeMobile(Mobile mobile){
         FoldersController.createFolder("saved data\\products\\digital\\mobiles\\productsList\\mobile " + mobile.getID());
         File file = new File("saved data\\products\\digital\\mobiles\\productsList\\mobile " + mobile.getID() + "\\spec.txt");
         try {
@@ -53,10 +57,10 @@ public class MobileController {
         printWriter.println(mobile.getSimCount());
         printWriter.println(mobile.getCamera());
         printWriter.close();
-        File file1 = new File("saved data\\users\\sellers\\seller " + mobile.getSeller().getID() + "\\products list\\dress " + mobile.getID());
+        File file1 = new File("saved data\\users\\sellers\\seller " + mobile.getSeller().getID() + "\\products list\\mobile " + mobile.getID());
         file1.mkdir();
-        Path copied = Paths.get("saved data\\products\\digital\\mobiles\\productsList\\mobile " + mobile.getID() + "\\spec.txt");
-        Path originalPath = Paths.get("saved data\\users\\sellers\\seller " + mobile.getSeller().getID() + "\\products list\\dress " + mobile.getID());
+        Path originalPath = Paths.get("saved data\\products\\digital\\mobiles\\productsList\\mobile " + mobile.getID() + "\\spec.txt");
+        Path copied = Paths.get("saved data\\users\\sellers\\seller " + mobile.getSeller().getID() + "\\products list\\mobile " + mobile.getID() + "\\spec.txt");
         try {
             Files.copy(originalPath, copied, REPLACE_EXISTING);
         } catch (IOException e) {

@@ -49,5 +49,6 @@ public class SellerController {
         printWriter.println(seller.getCompanyName());
         printWriter.println(seller.getCompanyEmail());
         printWriter.println(seller.getAccountStatus());
+        printWriter.close();
     }
 }

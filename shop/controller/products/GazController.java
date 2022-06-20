@@ -23,6 +23,9 @@ public class GazController {
 
     public static void setGazes(Gaz gaz) {
         GazController.gazes.add(gaz);
+        writeGaz(gaz);
+    }
+    public static void writeGaz(Gaz gaz){
         FoldersController.createFolder("saved data\\products\\household\\gazes\\productsList\\gaz " + gaz.getID());
         File file = new File("saved data\\products\\household\\gazes\\productsList\\gaz " + gaz.getID() + "\\spec.txt");
         try {
@@ -51,10 +54,10 @@ public class GazController {
         printWriter.println(gaz.getMaterial());
         printWriter.println(gaz.isHaveOven());
         printWriter.close();
-        File file1 = new File("saved data\\users\\sellers\\seller " + gaz.getSeller().getID() + "\\products list\\dress " + gaz.getID());
+        File file1 = new File("saved data\\users\\sellers\\seller " + gaz.getSeller().getID() + "\\products list\\gaz " + gaz.getID());
         file1.mkdir();
-        Path copied = Paths.get("saved data\\products\\household\\gazes\\productsList\\gaz " + gaz.getID() + "\\spec.txt");
-        Path originalPath = Paths.get("saved data\\users\\sellers\\seller " + gaz.getSeller().getID() + "\\products list\\dress " + gaz.getID());
+        Path originalPath = Paths.get("saved data\\products\\household\\gazes\\productsList\\gaz " + gaz.getID() + "\\spec.txt");
+        Path copied = Paths.get("saved data\\users\\sellers\\seller " + gaz.getSeller().getID() + "\\products list\\gaz " + gaz.getID() + "\\spec.txt");
         try {
             Files.copy(originalPath, copied, REPLACE_EXISTING);
         } catch (IOException e) {

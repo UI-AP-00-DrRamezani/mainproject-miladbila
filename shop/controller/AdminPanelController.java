@@ -1,9 +1,19 @@
 package shop.controller;
 
-import shop.controller.products.ProductsController;
+import shop.controller.products.*;
 import shop.entities.products.Product;
+import shop.entities.products.clothing.Dress;
+import shop.entities.products.clothing.Shoes;
+import shop.entities.products.digital.Laptop;
+import shop.entities.products.digital.Mobile;
+import shop.entities.products.food.FoodProducts;
+import shop.entities.products.household.Gaz;
+import shop.entities.products.household.Refrigerator;
+import shop.entities.products.household.TV;
 import shop.roles.Buyer;
 import shop.roles.Seller;
+
+import java.io.File;
 
 public class AdminPanelController {
     public static void sellersList() {
@@ -24,15 +34,20 @@ public class AdminPanelController {
     }
 
     public static void deleteSeller(int index) {
+        File file=new File("saved data\\users\\sellers\\seller "+SellerController.getSellerList().get(index - 1).getID());
+        file.delete();
         SellerController.getSellerList().remove(index - 1);
     }
 
     public static void deleteBuyer(int index) {
+        File file=new File("saved data\\users\\buyers\\buyer "+BuyerController.getBuyerList().get(index - 1).getID());
+        file.delete();
         BuyerController.getBuyerList().remove(index - 1);
     }
 
     public static void changeSellerStatus(int index, Seller.status status) {
         SellerController.getSellerList().get(index - 1).setAccountStatus(status);
+        SellerController.writeSeller(SellerController.getSellerList().get(index - 1));
     }
 
     public static void viewProducts() {
@@ -45,10 +60,41 @@ public class AdminPanelController {
 
     public static void changeProductsStatus(int index, Product.status status) {
         ProductsController.getProducts().get(index - 1).setConfirmStatus(status);
+        if (ProductsController.getProducts().get(index - 1) instanceof Mobile)
+            MobileController.writeMobile((Mobile) ProductsController.getProducts().get(index - 1));
+        else if (ProductsController.getProducts().get(index - 1) instanceof Laptop)
+            LaptopController.writeLaptop((Laptop) ProductsController.getProducts().get(index - 1));
+        else if (ProductsController.getProducts().get(index - 1) instanceof TV)
+            TVController.writeTV((TV) ProductsController.getProducts().get(index - 1));
+        else if (ProductsController.getProducts().get(index - 1) instanceof Gaz)
+            GazController.writeGaz((Gaz) ProductsController.getProducts().get(index - 1));
+        else if (ProductsController.getProducts().get(index - 1) instanceof Refrigerator)
+            RefrigeratorController.writeRefrigerator((Refrigerator) ProductsController.getProducts().get(index - 1));
+        else if (ProductsController.getProducts().get(index - 1) instanceof Dress)
+            DressController.writeDress((Dress) ProductsController.getProducts().get(index - 1));
+        else if (ProductsController.getProducts().get(index - 1) instanceof Shoes)
+            ShoesController.writeShoes((Shoes) ProductsController.getProducts().get(index - 1));
+        else
+            FoodController.writeFood((FoodProducts) ProductsController.getProducts().get(index - 1));
     }
 
     public static void deleteProduct(int index) {
         ProductsController.getProducts().get(index - 1).setConfirmStatus(Product.status.REJECTED);
-
+        if (ProductsController.getProducts().get(index - 1) instanceof Mobile)
+            MobileController.writeMobile((Mobile) ProductsController.getProducts().get(index - 1));
+        else if (ProductsController.getProducts().get(index - 1) instanceof Laptop)
+            LaptopController.writeLaptop((Laptop) ProductsController.getProducts().get(index - 1));
+        else if (ProductsController.getProducts().get(index - 1) instanceof TV)
+            TVController.writeTV((TV) ProductsController.getProducts().get(index - 1));
+        else if (ProductsController.getProducts().get(index - 1) instanceof Gaz)
+            GazController.writeGaz((Gaz) ProductsController.getProducts().get(index - 1));
+        else if (ProductsController.getProducts().get(index - 1) instanceof Refrigerator)
+            RefrigeratorController.writeRefrigerator((Refrigerator) ProductsController.getProducts().get(index - 1));
+        else if (ProductsController.getProducts().get(index - 1) instanceof Dress)
+            DressController.writeDress((Dress) ProductsController.getProducts().get(index - 1));
+        else if (ProductsController.getProducts().get(index - 1) instanceof Shoes)
+            ShoesController.writeShoes((Shoes) ProductsController.getProducts().get(index - 1));
+        else
+            FoodController.writeFood((FoodProducts) ProductsController.getProducts().get(index - 1));
     }
 }

@@ -2,6 +2,8 @@ package shop.pages;
 
 import shop.controller.FilesController;
 import shop.controller.FoldersController;
+import shop.entities.products.digital.DigitalProducts;
+import shop.entities.products.digital.Mobile;
 
 import java.util.Scanner;
 
@@ -11,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
         FoldersController.checkFolders();
         FilesController.readFiles();
+        System.out.println(Mobile.class);
         while (true) {
             System.out.println("Welcome to Online Shop\n\n");
             System.out.println("1. UserArea");

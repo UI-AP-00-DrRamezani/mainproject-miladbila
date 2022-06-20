@@ -6,6 +6,12 @@ import shop.entities.SalesInvoice;
 import shop.entities.products.Product;
 import shop.exception.LackOfMoneyException;
 import shop.roles.Buyer;
+import shop.roles.Seller;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 public class BuyerPanelController {
     public static void cartProducts(Buyer buyer) {
@@ -31,10 +37,64 @@ public class BuyerPanelController {
         if (priceSum > buyer.getCredit()) {
             throw new LackOfMoneyException("Your account balance is not enough");
         }
-        buyer.setPurchaseInvoices(new PurchaseInvoice(priceSum, buyer.getCart().toArray(new Product[0])));
+        PurchaseInvoice purchaseInvoice = new PurchaseInvoice(priceSum, buyer.getCart().toArray(new Product[0]));
+        buyer.setPurchaseInvoices(purchaseInvoice);
+        writePurchaseHistory(buyer, purchaseInvoice);
         for (Product a : buyer.getCart()) {
-            a.getSeller().setSalesHistory(new SalesInvoice(a.getPrice(), a, buyer.getName() + buyer.getLastName()));
+            SalesInvoice salesInvoice = new SalesInvoice(a.getPrice(), a, buyer.getName() + buyer.getLastName());
+            a.getSeller().setSalesHistory(salesInvoice);
+            writeSalesHistory(a.getSeller(), salesInvoice);
         }
         buyer.getCart().clear();
+    }
+
+    private static void writeSalesHistory(Seller seller, SalesInvoice salesInvoice) {
+        FileOutputStream outputStream;
+        try {
+            outputStream = new FileOutputStream("saved data\\users\\sellers\\seller " + seller.getID() + "sale history.txt");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        ObjectOutputStream objectOutputStream;
+        try {
+            objectOutputStream = new ObjectOutputStream(outputStream);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            objectOutputStream.writeObject(salesInvoice);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            objectOutputStream.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void writePurchaseHistory(Buyer buyer, PurchaseInvoice purchaseInvoice) {
+        FileOutputStream outputStream;
+        try {
+            outputStream = new FileOutputStream("saved data\\users\\buyers\\buyer " + buyer.getID() + "sale history.txt");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        ObjectOutputStream objectOutputStream;
+        try {
+            objectOutputStream = new ObjectOutputStream(outputStream);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            objectOutputStream.writeObject(purchaseInvoice);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            objectOutputStream.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -23,6 +23,10 @@ public class TVController {
 
     public static void setTV(TV TV) {
         TVController.TVs.add(TV);
+        writeTV(TV);
+    }
+
+    public static void writeTV(TV TV) {
         FoldersController.createFolder("saved data\\products\\household\\TVs\\productsList\\TV " + TV.getID());
         File file = new File("saved data\\products\\household\\TVs\\productsList\\TV " + TV.getID() + "\\spec.txt");
         try {
@@ -50,10 +54,10 @@ public class TVController {
         printWriter.println(TV.getRelocation());
         printWriter.println(TV.getScreenSize());
         printWriter.close();
-        File file1 = new File("saved data\\users\\sellers\\seller " + TV.getSeller().getID() + "\\products list\\dress " + TV.getID());
+        File file1 = new File("saved data\\users\\sellers\\seller " + TV.getSeller().getID() + "\\products list\\TV " + TV.getID());
         file1.mkdir();
-        Path copied = Paths.get("saved data\\products\\household\\TVs\\productsList\\TV " + TV.getID() + "\\spec.txt");
-        Path originalPath = Paths.get("saved data\\users\\sellers\\seller " + TV.getSeller().getID() + "\\products list\\dress " + TV.getID());
+        Path originalPath = Paths.get("saved data\\products\\household\\TVs\\productsList\\TV " + TV.getID() + "\\spec.txt");
+        Path copied = Paths.get("saved data\\users\\sellers\\seller " + TV.getSeller().getID() + "\\products list\\TV " + TV.getID() + "\\spec.txt");
         try {
             Files.copy(originalPath, copied, REPLACE_EXISTING);
         } catch (IOException e) {

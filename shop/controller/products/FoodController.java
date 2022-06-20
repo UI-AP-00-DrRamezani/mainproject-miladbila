@@ -23,6 +23,9 @@ public class FoodController {
 
     public static void setFoodProducts(FoodProducts foodProduct) {
         FoodController.foodProducts.add(foodProduct);
+        writeFood(foodProduct);
+    }
+    public static void writeFood(FoodProducts foodProduct){
         FoldersController.createFolder("saved data\\products\\foods\\productsList\\food " + foodProduct.getID());
         File file = new File("saved data\\products\\foods\\productsList\\food " + foodProduct.getID() + "\\spec.txt");
         try {
@@ -48,10 +51,10 @@ public class FoodController {
         printWriter.println(foodProduct.getExpirationDate());
         printWriter.println(foodProduct.getProductionDate());
         printWriter.close();
-        File file1 = new File("saved data\\users\\sellers\\seller " + foodProduct.getSeller().getID() + "\\products list\\dress " + foodProduct.getID());
+        File file1 = new File("saved data\\users\\sellers\\seller " + foodProduct.getSeller().getID() + "\\products list\\food " + foodProduct.getID());
         file1.mkdir();
-        Path copied = Paths.get("saved data\\products\\foods\\productsList\\food " + foodProduct.getID() + "\\spec.txt");
-        Path originalPath = Paths.get("saved data\\users\\sellers\\seller " + foodProduct.getSeller().getID() + "\\products list\\dress " + foodProduct.getID());
+        Path originalPath = Paths.get("saved data\\products\\foods\\productsList\\food " + foodProduct.getID() + "\\spec.txt");
+        Path copied = Paths.get("saved data\\users\\sellers\\seller " + foodProduct.getSeller().getID() + "\\products list\\food " + foodProduct.getID() + "\\spec.txt");
         try {
             Files.copy(originalPath, copied, REPLACE_EXISTING);
         } catch (IOException e) {

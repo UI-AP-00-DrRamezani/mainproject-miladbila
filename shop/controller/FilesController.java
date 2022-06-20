@@ -1,6 +1,8 @@
 package shop.controller;
 
 import shop.controller.products.*;
+import shop.entities.Comment;
+import shop.entities.Score;
 import shop.entities.products.clothing.Dress;
 import shop.entities.products.clothing.Shoes;
 import shop.entities.products.digital.Laptop;
@@ -12,12 +14,14 @@ import shop.entities.products.household.TV;
 import shop.roles.Buyer;
 import shop.roles.Seller;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FilesController {
     public static void readFiles() {
+        readSellers();
+        readBuyers();
         readRefrigerator();
         readDresses();
         readFoods();
@@ -26,8 +30,8 @@ public class FilesController {
         readMobiles();
         readShoes();
         readTV();
-        readSellers();
-        readBuyers();
+        readComments();
+        readScores();
     }
 
     private static void readMobiles() {
@@ -68,6 +72,7 @@ public class FilesController {
             double camera = read.nextDouble();
             Mobile temp = new Mobile(ID, name, brand, price, seller, inventory, explanation, storageCapacity, ramCapacity,
                     OS, weight, dimensions, simCount, camera);
+
             MobileController.getMobiles().add(temp);
             ProductsController.setProducts(temp);
             seller.setProductsForSale(temp);
@@ -386,10 +391,11 @@ public class FilesController {
             String companyName = read.nextLine();
             String companyEmail = read.nextLine();
             String accountStatus = read.nextLine();
-            SellerController.getSellerList().add(new Seller(ID,username,name,lastName,email,Integer.parseInt(phoneNumber),
-                    password,companyName,companyEmail,Seller.status.valueOf(accountStatus)));
+            SellerController.getSellerList().add(new Seller(ID, username, name, lastName, email, Integer.parseInt(phoneNumber),
+                    password, companyName, companyEmail, Seller.status.valueOf(accountStatus)));
         }
     }
+
     private static void readBuyers() {
         File folder = new File("saved data\\users\\buyers");
         String[] folders = folder.list();
@@ -409,8 +415,70 @@ public class FilesController {
             String email = read.nextLine();
             String phoneNumber = read.nextLine();
             String password = read.nextLine();
-            BuyerController.getBuyerList().add(new Buyer(ID,username,name,lastName,email,Integer.parseInt(phoneNumber),
+            BuyerController.getBuyerList().add(new Buyer(ID, username, name, lastName, email, Integer.parseInt(phoneNumber),
                     password));
+        }
+    }
+
+    private static void readComments() {
+        FileInputStream fileInputStream;
+        File file = new File("saved data\\products\\comments.txt");
+        if (file.exists()) {
+            try {
+                fileInputStream = new FileInputStream("saved data\\products\\comments.txt");
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            ObjectInputStream objectInputStream;
+            try {
+                objectInputStream = new ObjectInputStream(fileInputStream);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                CommentController.comments = (ArrayList<Comment>) objectInputStream.readObject();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                objectInputStream.close();
+                fileInputStream.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private static void readScores() {
+        FileInputStream fileInputStream;
+        File file = new File("saved data\\products\\scores.txt");
+        if (file.exists()) {
+            try {
+                fileInputStream = new FileInputStream("saved data\\products\\scores.txt");
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            ObjectInputStream objectInputStream;
+            try {
+                objectInputStream = new ObjectInputStream(fileInputStream);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                ScoreController.scores = (ArrayList<Score>) objectInputStream.readObject();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                objectInputStream.close();
+                fileInputStream.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

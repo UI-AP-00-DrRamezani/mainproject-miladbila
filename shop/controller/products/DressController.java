@@ -23,6 +23,9 @@ public class DressController {
 
     public static void setDresses(Dress dress) {
         DressController.dresses.add(dress);
+        writeDress(dress);
+    }
+    public static void writeDress(Dress dress){
         FoldersController.createFolder("saved data\\products\\clothing\\dresses\\productsList\\dress " + dress.getID());
         File file = new File("saved data\\products\\clothing\\dresses\\productsList\\dress " + dress.getID() + "\\spec.txt");
         try {
@@ -52,8 +55,8 @@ public class DressController {
         printWriter.close();
         File file1 = new File("saved data\\users\\sellers\\seller " + dress.getSeller().getID() + "\\products list\\dress " + dress.getID());
         file1.mkdir();
-        Path copied = Paths.get("saved data\\products\\clothing\\dresses\\productsList\\dress " + dress.getID() + "\\spec.txt");
-        Path originalPath = Paths.get("saved data\\users\\sellers\\seller " + dress.getSeller().getID() + "\\products list\\dress " + dress.getID());
+        Path originalPath = Paths.get("saved data\\products\\clothing\\dresses\\productsList\\dress " + dress.getID() + "\\spec.txt");
+        Path copied = Paths.get("saved data\\users\\sellers\\seller " + dress.getSeller().getID() + "\\products list\\dress " + dress.getID() + "\\spec.txt");
         try {
             Files.copy(originalPath, copied, REPLACE_EXISTING);
         } catch (IOException e) {

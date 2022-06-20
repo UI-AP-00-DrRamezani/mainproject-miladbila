@@ -23,6 +23,10 @@ public class LaptopController {
 
     public static void setLaptops(Laptop laptop) {
         LaptopController.laptops.add(laptop);
+        writeLaptop(laptop);
+    }
+
+    public static void writeLaptop(Laptop laptop) {
         FoldersController.createFolder("saved data\\products\\digital\\laptops\\productsList\\laptop " + laptop.getID());
         File file = new File("saved data\\products\\digital\\laptops\\productsList\\laptop " + laptop.getID() + "\\spec.txt");
         try {
@@ -53,10 +57,10 @@ public class LaptopController {
         printWriter.println(laptop.getCPU());
         printWriter.println(laptop.isGaming());
         printWriter.close();
-        File file1 = new File("saved data\\users\\sellers\\seller " + laptop.getSeller().getID() + "\\products list\\dress " + laptop.getID());
+        File file1 = new File("saved data\\users\\sellers\\seller " + laptop.getSeller().getID() + "\\products list\\laptop " + laptop.getID());
         file1.mkdir();
-        Path copied = Paths.get("saved data\\products\\digital\\laptops\\productsList\\laptop " + laptop.getID() + "\\spec.txt");
-        Path originalPath = Paths.get("saved data\\users\\sellers\\seller " + laptop.getSeller().getID() + "\\products list\\dress " + laptop.getID());
+        Path originalPath = Paths.get("saved data\\products\\digital\\laptops\\productsList\\laptop " + laptop.getID() + "\\spec.txt");
+        Path copied = Paths.get("saved data\\users\\sellers\\seller " + laptop.getSeller().getID() + "\\products list\\laptop " + laptop.getID() + "\\spec.txt");
         try {
             Files.copy(originalPath, copied, REPLACE_EXISTING);
         } catch (IOException e) {
