@@ -1,8 +1,12 @@
 package shop.pages;
 
 import shop.controller.BuyerPanelController;
-import shop.controller.ProductPageController;
+import shop.exception.InvalidEmail;
+import shop.exception.InvalidPhoneNumberException;
+import shop.exception.InvalidPurchaseException;
 import shop.roles.Buyer;
+
+import java.util.InputMismatchException;
 
 import static shop.pages.Main.input;
 
@@ -16,7 +20,12 @@ public class BuyerPanel {
             System.out.println("4. Purchase history list");
             System.out.println("5. Increase credit");
             System.out.println("6. Logout");
-            int selectedNumber = input.nextInt();
+            int selectedNumber = 0;
+            try {
+                selectedNumber = input.nextInt();
+            } catch (InputMismatchException ex) {
+                System.out.println("input type mismatch");
+            }
             input.nextLine();
             switch (selectedNumber) {
                 case 1 -> changeInfo(buyer);
@@ -42,11 +51,19 @@ public class BuyerPanel {
         System.out.println("email");
         String email = input.nextLine();
         if (!email.equals(""))
-            buyer.setEmail(email);
+            try {
+                buyer.setEmail(email);
+            } catch (InvalidEmail ex) {
+                System.out.println(ex.getMessage());
+            }
         System.out.println("phone number");
         String phoneNumber = input.nextLine();
         if (!phoneNumber.equals(""))
-            buyer.setPhoneNumber(Integer.parseInt(phoneNumber));
+            try {
+                buyer.setPhoneNumber(Integer.parseInt(phoneNumber));
+            } catch (InvalidPhoneNumberException ex) {
+                System.out.println(ex.getMessage());
+            }
         System.out.println("password");
         String password = input.nextLine();
         if (!email.equals(""))
@@ -55,7 +72,13 @@ public class BuyerPanel {
     }
 
     private static void increaseCredit(Buyer buyer) {
-        double amount = input.nextDouble();
+        double amount;
+        try {
+            amount = input.nextDouble();
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
+            return;
+        }
         input.nextLine();
         BuyerPanelController.increaseCredit(buyer, amount);
     }
@@ -65,7 +88,11 @@ public class BuyerPanel {
         System.out.println("If you want the purchase to be complete, enter 1");
         if (input.nextLine().equals("1")) {
             System.out.println();
-            BuyerPanelController.purchase(buyer);
+            try {
+                BuyerPanelController.purchase(buyer);
+            } catch (InvalidPurchaseException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
     }
 }

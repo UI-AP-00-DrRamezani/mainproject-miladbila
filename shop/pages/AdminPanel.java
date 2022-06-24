@@ -5,6 +5,8 @@ import shop.entities.products.Product;
 import shop.roles.Admin;
 import shop.roles.Seller;
 
+import java.util.InputMismatchException;
+
 import static shop.pages.Main.input;
 
 public class AdminPanel {
@@ -19,7 +21,12 @@ public class AdminPanel {
             System.out.println("6. Delete a user");
             System.out.println("7. View categories list");
             System.out.println("8. Logout");
-            int selectedNumber = input.nextInt();
+            int selectedNumber = 0;
+            try {
+                selectedNumber = input.nextInt();
+            } catch (InputMismatchException ex) {
+                System.out.println("input type mismatch");
+            }
             switch (selectedNumber) {
                 case 1 -> changeInfo();
                 case 2 -> sellersRegistrationRequests();
@@ -36,9 +43,9 @@ public class AdminPanel {
     private static void changeProductStatus() {
         AdminPanelController.viewProducts();
         System.out.println("Enter number of product that you want change it status");
-        int userIndex= input.nextInt();
+        int userIndex = input.nextInt();
         System.out.println("if you want confirm that product enter 1 otherwise enter 2");
-        if (input.nextInt()==1)
+        if (input.nextInt() == 1)
             AdminPanelController.changeProductsStatus(userIndex, Product.status.CONFIRMED);
         else
             AdminPanelController.changeProductsStatus(userIndex, Product.status.REJECTED);
@@ -47,21 +54,41 @@ public class AdminPanel {
     private static void deleteProduct() {
         AdminPanelController.viewProducts();
         System.out.println("Enter number of product that you want change it status");
-        int userIndex= input.nextInt();
+        int userIndex;
+        try {
+            userIndex = input.nextInt();
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
+            return;
+        }
         System.out.println("if you want delete that product enter 1 otherwise enter 2");
-        if (input.nextInt()==1)
-            AdminPanelController.deleteProduct(userIndex);
+        try {
+            if (input.nextInt() == 1)
+                AdminPanelController.deleteProduct(userIndex);
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
+        }
     }
 
     private static void sellersRegistrationRequests() {
         AdminPanelController.sellersList();
         System.out.println("Enter number of user that you want change his/her status");
-        int userIndex= input.nextInt();
+        int userIndex;
+        try {
+            userIndex = input.nextInt();
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
+            return;
+        }
         System.out.println("if you want confirm that user enter 1 otherwise enter 2");
-        if (input.nextInt()==1)
-            AdminPanelController.changeSellerStatus(userIndex, Seller.status.CONFIRMED);
-        else
-            AdminPanelController.changeSellerStatus(userIndex, Seller.status.REJECTED);
+        try {
+            if (input.nextInt() == 1)
+                AdminPanelController.changeSellerStatus(userIndex, Seller.status.CONFIRMED);
+            else
+                AdminPanelController.changeSellerStatus(userIndex, Seller.status.REJECTED);
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
+        }
     }
 
     private static void usersList() {
@@ -73,14 +100,18 @@ public class AdminPanel {
 
     private static void deleteUser() {
         System.out.println("What type user you want to delete?\n1. Seller\n2. Buyer");
-        if (input.nextInt() == 1) {
-            AdminPanelController.sellersList();
-            System.out.println("Select user that you want to delete");
-            AdminPanelController.deleteSeller(input.nextInt());
-        } else {
-            AdminPanelController.buyerList();
-            System.out.println("Select user that you want to delete");
-            AdminPanelController.deleteBuyer(input.nextInt());
+        try {
+            if (input.nextInt() == 1) {
+                AdminPanelController.sellersList();
+                System.out.println("Select user that you want to delete");
+                AdminPanelController.deleteSeller(input.nextInt());
+            } else {
+                AdminPanelController.buyerList();
+                System.out.println("Select user that you want to delete");
+                AdminPanelController.deleteBuyer(input.nextInt());
+            }
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
         }
         input.nextLine();
 

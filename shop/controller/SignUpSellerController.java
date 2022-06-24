@@ -1,5 +1,6 @@
 package shop.controller;
 
+import shop.exception.UsernameTakenException;
 import shop.pages.SignUpSeller;
 import shop.roles.Seller;
 
@@ -15,10 +16,8 @@ public class SignUpSellerController {
     public static void singUpSeller(String username, String name, String lastName, String email, int phoneNumber,
                                     String password, String companyName, String companyEmail) {
         if (!availableUsername(username)) {
-            SignUpSeller.signupStatus = "Username already taken, please enter another";
-            return;
+            throw new UsernameTakenException("Username already taken, please enter another");
         }
         SellerController.singUpSeller(username, name, lastName, email, phoneNumber, password, companyName, companyEmail);
-        SignUpSeller.signupStatus = "Your registration is complete";
     }
 }

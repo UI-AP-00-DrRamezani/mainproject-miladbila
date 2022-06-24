@@ -1,9 +1,11 @@
 package shop.entities.products.digital;
 
+import shop.entities.DiscountOption;
+import shop.entities.WarrantyOption;
 import shop.entities.products.Product;
 import shop.roles.Seller;
 
-abstract public class DigitalProducts extends Product {
+abstract public class DigitalProducts extends Product implements WarrantyOption, DiscountOption {
     private double storageCapacity;
     private double ramCapacity;
     private String OS;
@@ -13,6 +15,16 @@ abstract public class DigitalProducts extends Product {
     public DigitalProducts(String name, String brand, double price, Seller seller, int inventory, String explanation,
                            double storageCapacity, double ramCapacity, String OS, double weight, String dimensions) {
         super(name, brand, price, seller, inventory, explanation);
+        this.storageCapacity = storageCapacity;
+        this.ramCapacity = ramCapacity;
+        this.OS = OS;
+        this.weight = weight;
+        this.dimensions = dimensions;
+    }
+
+    public DigitalProducts(int ID, String name, String brand, double price, Seller seller, int inventory, String explanation,
+                           double storageCapacity, double ramCapacity, String OS, double weight, String dimensions) {
+        super(ID, name, brand, price, seller, inventory, explanation);
         this.storageCapacity = storageCapacity;
         this.ramCapacity = ramCapacity;
         this.OS = OS;
@@ -58,6 +70,16 @@ abstract public class DigitalProducts extends Product {
 
     public void setDimensions(String dimensions) {
         this.dimensions = dimensions;
+    }
+
+    @Override
+    public Double calculateGuaranteeValue() {
+        return getPrice() * 0.5;
+    }
+
+    @Override
+    public int calculateGuaranteeTime() {
+        return (int) (ramCapacity * 10 + weight);
     }
 }
 

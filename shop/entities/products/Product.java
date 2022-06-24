@@ -1,8 +1,11 @@
 package shop.entities.products;
 
+import shop.entities.Discount;
 import shop.roles.Seller;
 
-abstract public class Product {
+import java.util.ArrayList;
+
+abstract public class Product implements Comparable {
     private static int LAST_ID = 0;
     private final int ID;
     private String name;
@@ -13,11 +16,24 @@ abstract public class Product {
     private String explanation;
     private double averageScoreOfBuyers;
     private status confirmStatus = status.PENDING;
+    private ArrayList<Discount> discountList = new ArrayList<>();
 
     public enum status {PENDING, CONFIRMED, REJECTED, DELETE_REQUEST, EDITED}
 
     public Product(String name, String brand, double price, Seller seller, int inventory, String explanation) {
         this.ID = LAST_ID++;
+        this.name = name;
+        this.brand = brand;
+        this.price = price;
+        this.seller = seller;
+        this.inventory = inventory;
+        this.explanation = explanation;
+        this.averageScoreOfBuyers = 0;
+    }
+
+    public Product(int ID, String name, String brand, double price, Seller seller, int inventory, String explanation) {
+        this.ID = ID;
+        LAST_ID = ID++;
         this.name = name;
         this.brand = brand;
         this.price = price;
@@ -91,4 +107,11 @@ abstract public class Product {
     public void setConfirmStatus(status confirmStatus) {
         this.confirmStatus = confirmStatus;
     }
+
+    public ArrayList<Discount> getDiscountList() {
+        return discountList;
+    }
+
+    @Override
+    public abstract int compareTo(Object o);
 }

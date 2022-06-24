@@ -5,6 +5,7 @@ import shop.entities.products.Product;
 import shop.roles.Buyer;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 import static shop.pages.Main.input;
 
@@ -23,7 +24,12 @@ public class ShowProductList {
         System.out.println("    7. Refrigerator");
         System.out.println("Food Product");
         System.out.println("    8. Food");
-        int n = input.nextInt();
+        int n = 0;
+        try {
+            n = input.nextInt();
+        } catch (InputMismatchException ex) {
+            System.out.println("input type mismatch");
+        }
         input.nextLine();
         switch (n) {
             case 1 -> addFilterMobile(buyer);
@@ -43,7 +49,6 @@ public class ShowProductList {
         String brand = input.nextLine();
         System.out.println("sim count");
         String simCount = input.nextLine();
-        input.nextLine();
         System.out.println("only available products(y/n)");
         String availability = input.nextLine();
         ShowProductListController.addFilterMobile(buyer, brand, simCount, availability);

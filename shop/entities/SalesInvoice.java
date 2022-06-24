@@ -5,7 +5,6 @@ import shop.entities.products.Product;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 
 public class SalesInvoice {
     private final int ID;

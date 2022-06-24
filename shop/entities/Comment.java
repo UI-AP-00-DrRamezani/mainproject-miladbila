@@ -7,7 +7,7 @@ public class Comment {
     private final Buyer commentingUser;
     private final Product product;
     private String commentText;
-    private status commentStatus=status.PENDING;
+    private status commentStatus = status.PENDING;
     private boolean isUserBuyProduct;
 
     public enum status {PENDING, CONFIRMED, REJECTED}

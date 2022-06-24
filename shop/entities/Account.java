@@ -1,6 +1,9 @@
 package shop.entities;
 
-import java.util.ArrayList;
+import shop.exception.InvalidEmail;
+import shop.exception.InvalidPhoneNumberException;
+
+import java.util.regex.Pattern;
 
 public class Account {
     private final String username;
@@ -15,7 +18,7 @@ public class Account {
         this.name = name;
         this.lastName = lastName;
         setEmail(email);
-        this.phoneNumber = phoneNumber;
+        setPhoneNumber(phoneNumber);
         this.password = password;
     }
 
@@ -44,19 +47,9 @@ public class Account {
     }
 
     public void setEmail(String email) {
-        boolean atSign = false;
-        boolean dot = false;
-        for (int i = 0; i < email.length(); i++) {
-            if (email.charAt(i) == '@')
-                atSign = true;
-            if (email.charAt(i) == '.')
-                dot = true;
-        }
-        if (atSign == true && dot == true)
-            this.email = email;
-        else {
-            System.out.println("email format invalid , please enter your email again");
-        }
+        if (Pattern.matches(".+@.+[.].+", email))
+            throw new InvalidEmail("invalid email format");
+        this.email = email;
     }
 
     public int getPhoneNumber() {
@@ -64,6 +57,8 @@ public class Account {
     }
 
     public void setPhoneNumber(int phoneNumber) {
+        if (Pattern.matches("[0]{1}[9]{1}[\\d]{8}", String.valueOf(phoneNumber)))
+            throw new InvalidPhoneNumberException("invalid phone number format");
         this.phoneNumber = phoneNumber;
     }
 

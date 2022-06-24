@@ -1,22 +1,20 @@
 package shop.controller;
 
 import shop.controller.products.ProductsController;
-import shop.entities.Category;
 import shop.entities.SalesInvoice;
 import shop.entities.products.Product;
 import shop.pages.ProductPage;
-import shop.roles.Buyer;
 import shop.roles.Seller;
 
 public class SellerPanelController {
     public static void productList(Seller seller) {
-        for (Product a:seller.getProductsForSale()) {
+        for (Product a : seller.getProductsForSale()) {
             System.out.println(ProductsController.shortProductSpec(a));
         }
     }
 
     public static void saleHistoryList(Seller seller) {
-        for (SalesInvoice a:seller.getSalesHistory())
+        for (SalesInvoice a : seller.getSalesHistory())
             System.out.println(a.toString());
     }
 
